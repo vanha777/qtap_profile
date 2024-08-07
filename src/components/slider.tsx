@@ -4,7 +4,6 @@
 import Link from 'next/link';
 import { useEffect, useState } from "react";
 import { stringify } from 'querystring';
-import SliderItem from './sliderItem';
 import Card from './card';
 
 // Define the types for social and media objects

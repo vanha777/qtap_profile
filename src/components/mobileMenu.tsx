@@ -59,8 +59,8 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activeButton, setActiveButton }
             >
                 <svg
                     fill={`${activeButton === 3 ? '#333333' : 'currentColor'}`}
-                    width="40px"
-                    height="40px"
+                    width="38px"
+                    height="38px"
                     viewBox="0 0 512 512"
                     xmlns="http://www.w3.org/2000/svg"
                     xmlnsXlink="http://www.w3.org/1999/xlink"

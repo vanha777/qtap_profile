@@ -4,6 +4,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface MobileMenuProps {
     activeButton: number;
@@ -11,14 +12,39 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ activeButton, setActiveButton }) => {
+    const transition = {
+        duration: 0.2
+    };
+    const variants0 = {
+        initial: { x: 0, y: 0, rotate: 0 },
+        moved: { x: -15, y: 0, rotate: 45 },
+    };
+
+    const variants = {
+        initial: { x: 0, y: 9 },
+        moved: { x: 0, y: -90 }
+    };
+    const variants_color = "#D53F8C";
+    const variants2 = {
+        initial: { x: 0, y: 3 },
+        moved: { x: -80, y: -50 }
+    };
+    const variants2_color = "#9B76F0";
+    const variants3 = {
+        initial: { x: 0, y: 6 },
+        moved: { x: 80, y: -50 }
+    };
+    const variants3_color = "#4A7BF7";
     // const [activeButton, setActiveButton] = useState(0);
+    // State to control the position
+    const [isMoved, setIsMoved] = useState(false);
     const handleButtonClick = (buttonIndex: number) => {
         setActiveButton(buttonIndex);
     };
     return (
         <div className="btm-nav fixed bottom-0 left-0 right-0 flex justify-around bg-white shadow-xl rounded-t-2xl z-10 p-2">
             <button
-                className={`text-primary ${activeButton === 1 ? 'active' : ''}`}
+                className={`text-primary ${activeButton === 1 ? '' : ''}`}
                 onClick={() => handleButtonClick(1)}
             >
                 <svg
@@ -36,11 +62,143 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activeButton, setActiveButton }
                     />
                 </svg>
             </button>
-            <button
+            <div
                 className={` text-primary ${activeButton === 2 ? '' : ''}`}
-                onClick={() => handleButtonClick(2)}
+            // onClick={() => handleButtonClick(2)}
+            // onClick={() => setIsMoved(!isMoved)}
             >
-                <div className='bg-white rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
+                <motion.div
+                    initial="initial"
+                    animate={isMoved ? "moved" : "initial"}
+                    variants={variants}
+                    transition={transition}
+                    style={{
+                        width: 100,
+                        height: 100,
+                        // backgroundColor: 'coral',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        // color: 'white',
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        position: 'absolute', // Optional: ensures the element can move freely
+                    }}
+                >
+                    <div className='bg-white rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
+                        <svg width="800" height="800" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <title>plus-circle</title>
+                            <desc>Created with Sketch Beta.</desc>
+                            <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                <g id="Icon-Set-Filled" transform="translate(-466, -1089)" fill={variants_color}>
+                                    <path d="M488,1106 L483,1106 L483,1111 C483,1111.55 482.553,1112 482,1112 C481.447,1112 481,1111.55 481,1111 L481,1106 L476,1106 C475.447,1106 475,1105.55 475,1105 C475,1104.45 475.447,1104 476,1104 L481,1104 L481,1099 C481,1098.45 481.447,1098 482,1098 C482.553,1098 483,1098.45 483,1099 L483,1104 L488,1104 C488.553,1104 489,1104.45 489,1105 C489,1105.55 488.553,1106 488,1106 L488,1106 Z M482,1089 C473.163,1089 466,1096.16 466,1105 C466,1113.84 473.163,1121 482,1121 C490.837,1121 498,1113.84 498,1105 C498,1096.16 490.837,1089 482,1089 L482,1089 Z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </motion.div>
+                <motion.div
+                    initial="initial"
+                    animate={isMoved ? "moved" : "initial"}
+                    variants={variants3}
+                    transition={transition}
+                    style={{
+                        width: 100,
+                        height: 100,
+                        // backgroundColor: 'coral',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        // color: 'white',
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        position: 'absolute', // Optional: ensures the element can move freely
+                    }}
+                >
+                    <div className='bg-white rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
+                        <svg width="800" height="800" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <title>plus-circle</title>
+                            <desc>Created with Sketch Beta.</desc>
+                            <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                <g id="Icon-Set-Filled" transform="translate(-466, -1089)" fill={variants3_color}>
+                                    <path d="M488,1106 L483,1106 L483,1111 C483,1111.55 482.553,1112 482,1112 C481.447,1112 481,1111.55 481,1111 L481,1106 L476,1106 C475.447,1106 475,1105.55 475,1105 C475,1104.45 475.447,1104 476,1104 L481,1104 L481,1099 C481,1098.45 481.447,1098 482,1098 C482.553,1098 483,1098.45 483,1099 L483,1104 L488,1104 C488.553,1104 489,1104.45 489,1105 C489,1105.55 488.553,1106 488,1106 L488,1106 Z M482,1089 C473.163,1089 466,1096.16 466,1105 C466,1113.84 473.163,1121 482,1121 C490.837,1121 498,1113.84 498,1105 C498,1096.16 490.837,1089 482,1089 L482,1089 Z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </motion.div>
+                <motion.div
+                    initial="initial"
+                    animate={isMoved ? "moved" : "initial"}
+                    variants={variants2}
+                    transition={transition}
+                    style={{
+                        width: 100,
+                        height: 100,
+                        // backgroundColor: 'coral',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        // color: 'white',
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        position: 'absolute', // Optional: ensures the element can move freely
+                    }}
+                >
+                    <div className='bg-white rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
+                        <svg width="800" height="800" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <title>plus-circle</title>
+                            <desc>Created with Sketch Beta.</desc>
+                            <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+                                <g id="Icon-Set-Filled" transform="translate(-466, -1089)" fill={variants2_color}>
+                                    <path d="M488,1106 L483,1106 L483,1111 C483,1111.55 482.553,1112 482,1112 C481.447,1112 481,1111.55 481,1111 L481,1106 L476,1106 C475.447,1106 475,1105.55 475,1105 C475,1104.45 475.447,1104 476,1104 L481,1104 L481,1099 C481,1098.45 481.447,1098 482,1098 C482.553,1098 483,1098.45 483,1099 L483,1104 L488,1104 C488.553,1104 489,1104.45 489,1105 C489,1105.55 488.553,1106 488,1106 L488,1106 Z M482,1089 C473.163,1089 466,1096.16 466,1105 C466,1113.84 473.163,1121 482,1121 C490.837,1121 498,1113.84 498,1105 C498,1096.16 490.837,1089 482,1089 L482,1089 Z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </motion.div>
+
+                <motion.div
+                    initial="initial"
+                    animate={isMoved ? "moved" : "initial"}
+                    variants={variants0}
+                    transition={transition}
+                    onClick={() => setIsMoved(!isMoved)}
+                    style={{
+                        width: 100,
+                        height: 100,
+                        // backgroundColor: 'coral',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        // color: 'white',
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        position: 'absolute', // Optional: ensures the element can move freely
+                    }}
+                >
+                    <div className='bg-white rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
+                        <svg width="800" height="800" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <title>plus-circle</title>
+                            <desc>Created with Sketch Beta.</desc>
+                            <g id="Page-1" stroke={`${isMoved == true ? 'black' : 'none'}`} strokeWidth="1" fill="none" fillRule="evenodd">
+                                <g id="Icon-Set-Filled" transform="translate(-466, -1089)" fill={`${isMoved == true ? 'white' : 'currentColor'}`}>
+                                    <path d="M488,1106 L483,1106 L483,1111 C483,1111.55 482.553,1112 482,1112 C481.447,1112 481,1111.55 481,1111 L481,1106 L476,1106 C475.447,1106 475,1105.55 475,1105 C475,1104.45 475.447,1104 476,1104 L481,1104 L481,1099 C481,1098.45 481.447,1098 482,1098 C482.553,1098 483,1098.45 483,1099 L483,1104 L488,1104 C488.553,1104 489,1104.45 489,1105 C489,1105.55 488.553,1106 488,1106 L488,1106 Z M482,1089 C473.163,1089 466,1096.16 466,1105 C466,1113.84 473.163,1121 482,1121 C490.837,1121 498,1113.84 498,1105 C498,1096.16 490.837,1089 482,1089 L482,1089 Z" />
+                                </g>
+                            </g>
+                        </svg>
+                    </div>
+                </motion.div>
+
+                {/* <div className='bg-white rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
                     <svg width="800" height="800" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                         <title>plus-circle</title>
                         <desc>Created with Sketch Beta.</desc>
@@ -50,11 +208,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ activeButton, setActiveButton }
                             </g>
                         </g>
                     </svg>
-                </div>
+                </div> */}
 
-            </button>
+            </div>
             <button
-                className={`text-primary ${activeButton === 3 ? 'active' : ''}`}
+                className={`text-primary ${activeButton === 3 ? '' : ''}`}
                 onClick={() => handleButtonClick(3)}
             >
                 <svg

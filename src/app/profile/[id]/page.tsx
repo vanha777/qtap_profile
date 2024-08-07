@@ -29,7 +29,6 @@ type User = {
   media: Media[];
 };
 
-
 export default function ProfilePage() {
   const router = useRouter();
   const [activeButton, setActiveButton] = useState(1);
@@ -59,7 +58,7 @@ export default function ProfilePage() {
           name: 'Van Ha',
           photo: 'https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp',
           title: 'Tech Lover',
-          bio:'Passionate about building scalable and efficient software solutions.',
+          bio: 'Passionate about building scalable and efficient software solutions.',
           social: [
             {
               link: 'https://twitter.com/johndoe',
@@ -84,25 +83,30 @@ export default function ProfilePage() {
       } else {
         const user2: User = {
           name: 'Sofia Nguyen',
-          photo: 'https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp',
+          photo: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/IMG_2078.png',
           title: 'Social Media Lover',
-          bio:'A business leader, entrepreneur, and active community member.',
+          bio: 'A business leader, entrepreneur, and active community member.',
           social: [
             {
-              link: 'https://twitter.com/johndoe',
-              platforms: 'Twitter',
+              link: 'https://mysite.mynuskin.com/content/nuskin/en_AU/mysite/mysite-home.mysite.sofiabeautyworld.html?storeId=AS00220965#home',
+              platforms: 'Nuskin',
               icons: 'https://example.com/twitter-icon.png'
             },
             {
-              link: 'https://linkedin.com/in/johndoe',
-              platforms: 'LinkedIn',
+              link: 'https://www.facebook.com/sofiang2407',
+              platforms: 'Facebook',
               icons: 'https://example.com/linkedin-icon.png'
+            },
+            {
+              link: 'https://www.instagram.com/sofia.socialbae',
+              platforms: 'Instargram',
+              icons: 'https://example.com/twitter-icon.png'
             }
           ],
           media: [
             {
-              media: 'https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp',
-              type: 'image',
+              media: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/IMG_8651.MOV',
+              type: 'video',
               info: 'This is a test video'
             }
           ]
@@ -118,11 +122,15 @@ export default function ProfilePage() {
       // maxWidth: '640px',
       background: 'linear-gradient(to right, #E17AFE, #9BAAFF)'
     }}>
-      <MobileMenu activeButton={activeButton} setActiveButton={setActiveButton} />
-      {activeButton === 1 && user !== undefined && (
+      {user && (
+        <MobileMenu user={user} activeButton={activeButton} setActiveButton={setActiveButton} />
+      )
+      }
+      {/* {activeButton === 1 && */}
+      {user !== undefined && (
         <div className="h-screen w-screen flex items-center justify-center p-5 pb-20">
-        <Slider user={user} />
-         </div>
+          <Slider user={user} />
+        </div>
       )
       }
       {/* {activeButton === 2 &&

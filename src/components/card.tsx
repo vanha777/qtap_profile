@@ -39,9 +39,21 @@ const Card: React.FC<MediaProps> = ({ media, isMobile, user }) => {
     return (
         <>
             <div className="card w-96 bg-white">
-                <img style={{
+                {/* <img style={{
                     height: 400,
-                }} src={media.media} alt="car!" />
+                }} src={media.media} alt="car!" /> */}
+                <video
+                    style={{
+                        height: 400,
+                        width: 'auto', // Adjust as needed, or use '100%' if you want it to fill the width of its container
+                        objectFit: 'cover' // Ensures the video covers the container without stretching
+                    }}
+                    src={media.media} // Replace with your video source URL
+                    autoPlay
+                    muted // Optional: Mutes the video
+                    playsInline // Optional: For inline playback on mobile devices
+                    loop // Optional: To loop the video
+                />
 
                 <div className="relative">
                     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
@@ -56,21 +68,19 @@ const Card: React.FC<MediaProps> = ({ media, isMobile, user }) => {
                 </div>
 
                 <div className="card-body pt-16">
-
-
                     <div >
 
-                        <h1 className="text-4xl font-bold text-gray-900 mb-2">
+                        <h1 className="text-4xl font-bold text-gray-900 mb-2 font-signature">
                             {user.name}
                         </h1>
 
 
-                        <h2 className="text-xl font-semibold text-gray-700 mb-4">
+                        <h2 className="text-xl font-semibold text-gray-700 mb-4 font-heading">
                             {user.title}
                         </h2>
 
 
-                        <p className="text-base text-gray-600">
+                        <p className="text-base text-gray-600 font-description">
                             {user.bio}
                         </p>
                     </div>

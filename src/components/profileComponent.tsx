@@ -31,7 +31,10 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
     }, [theme,user]);
 
     return (
-        <div className={`flex items-center justify-center ${theme?.background}`}>
+        <div className={`flex items-center justify-center`} 
+        style={{
+            background: `${theme?.background}`
+        }}>
             {/* <div className="full-screen-gradient" > */}
             {user && (
                 <MobileMenu theme={theme} user={user} activeButton={activeButton} setActiveButton={setActiveButton} />

@@ -36,6 +36,8 @@ export default function ProfilePage() {
                 const user1: User = {
                     name: 'Van Ha',
                     photo: 'https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp',
+                    phone:"+61451862476",
+                    email:"vanha101096@gmail.com",
                     title: 'Tech Lover',
                     bio: 'Passionate about building scalable and efficient software solutions.',
                     social: [
@@ -63,6 +65,8 @@ export default function ProfilePage() {
                 const user2: User = {
                     name: 'Sofia Nguyen',
                     photo: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/IMG_2078.png',
+                    phone:"+61413906792",
+                    email:"sofiang2407@gmail.com",
                     title: 'Social Media Lover',
                     bio: 'A business leader, entrepreneur, and active community member.',
                     social: [

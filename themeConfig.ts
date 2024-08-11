@@ -30,13 +30,13 @@ export interface Theme {
 }
 
 // Define the types for social and media objects
-type Social = {
+export interface Social {
   link: string;
   platforms: string;
   icons: string;
 };
 
-type Media = {
+export interface Media  {
   media: string;
   type: string;
   info: string;
@@ -46,6 +46,8 @@ type Media = {
 export interface User {
   name: string;
   photo: string;
+  phone: string;
+  email: string;
   title: string;
   bio: string;
   social: Social[];
@@ -63,7 +65,7 @@ const themeConfig: ThemeConfig = {
     daisy: 'silver'
   },
   "rose": {
-    background: 'bg-gradient-rose',
+    background: 'linear-gradient(to right, #E17AFE, #9BAAFF)',
     primary: '#4a00ff',
     secondary: '',
     inactiveColor: '#333333',
@@ -72,7 +74,7 @@ const themeConfig: ThemeConfig = {
     daisy: 'rose'
   },
   "silver": {
-    background: 'bg-gradient-silver',
+    background: 'linear-gradient(to right, #be123c, #fb7185)',
     primary: '#be123c',
     secondary: '',
     inactiveColor: '#333333',
@@ -81,7 +83,7 @@ const themeConfig: ThemeConfig = {
     daisy: 'silver'
   },
   "gold": {
-    background: 'bg-gradient-gold',
+    background: 'linear-gradient(to right, #0f766e, #34d399)',
     primary: '#0f766e',
     secondary: '',
     inactiveColor: '#333333',

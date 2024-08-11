@@ -28,17 +28,33 @@ type User = {
     media: Media[];
 };
 
+type Theme = {
+    background: string;
+    primary: string;
+    secondary: string;
+    inactiveColor?: string;
+    textColor?: string; // Optional property for text color
+    borderColor?: string;
+    buttonBackground: string
+    buttonText?: String
+};
+
 interface MediaProps {
+    theme?: Theme;
     isMobile: boolean;
     media: Media;
-    user: User;
+    user?: User;
 }
 
-const Card: React.FC<MediaProps> = ({ media, isMobile, user }) => {
-
+const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
+   // Inline style to set the dynamic ring color
+   const style: React.CSSProperties = {
+    '--ring-color': '#000' || '#000', // Set custom property, fallback to #000
+  } as React.CSSProperties;
     return (
         <>
-            <div className="card w-96 bg-white">
+            <div className="bg-primary-content card w-96"
+            >
                 {/* <img style={{
                     height: 400,
                 }} src={media.media} alt="car!" /> */}
@@ -58,9 +74,10 @@ const Card: React.FC<MediaProps> = ({ media, isMobile, user }) => {
                 <div className="relative">
                     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
                         <div className="avatar">
-                            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+                             >
                                 <a>
-                                    <img src={user.photo} alt="avatar" />
+                                    <img src={user?.photo} alt="avatar" />
                                 </a>
                             </div>
                         </div>
@@ -71,17 +88,17 @@ const Card: React.FC<MediaProps> = ({ media, isMobile, user }) => {
                     <div >
 
                         <h1 className="text-4xl font-bold text-gray-900 mb-2 font-signature">
-                            {user.name}
+                            {user?.name}
                         </h1>
 
 
                         <h2 className="text-xl font-semibold text-gray-700 mb-4 font-heading">
-                            {user.title}
+                            {user?.title}
                         </h2>
 
 
                         <p className="text-base text-gray-600 font-description">
-                            {user.bio}
+                            {user?.bio}
                         </p>
                     </div>
 

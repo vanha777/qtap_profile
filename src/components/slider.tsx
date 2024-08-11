@@ -28,17 +28,28 @@ type User = {
     social: Social[];
     media: Media[];
 };
+type Theme = {
+    background: string;
+    primary: string;
+    secondary: string;
+    inactiveColor?: string;
+    textColor?: string; // Optional property for text color
+    borderColor?: string;
+    buttonBackground: string
+    buttonText?: String
+};
 
 // Define the props for the SliderItem component
 interface SliderItemProps {
-    user: User;
+    theme?:Theme,
+    user?: User;
 }
 
 const isMobileDevice = () => {
     return window.innerWidth <= 768;
 };
 
-const Slider: React.FC<SliderItemProps> = ({ user }) => {
+const Slider: React.FC<SliderItemProps> = ({ theme,user }) => {
     const [isMobile, setIsMobile] = useState<boolean>(false);
 
     useEffect(() => {
@@ -53,9 +64,9 @@ const Slider: React.FC<SliderItemProps> = ({ user }) => {
     return (
         <div className="carousel carousel-vertical rounded-box h-full">
             {/* <Card media={user.media[0]} /> */}
-            {user.media.map((media) => (
+            {user?.media.map((media) => (
              <div className="carousel-item">
-                <Card user={user} isMobile={isMobile} media={media} />
+                <Card theme={theme} user={user} isMobile={isMobile} media={media} />
                 </div>
             ))}
         </div>

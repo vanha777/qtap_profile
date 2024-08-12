@@ -87,17 +87,17 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                 <div className="card-body pt-16">
                     <div >
 
-                        <h1 className="text-4xl font-bold text-gray-900 mb-2 font-signature">
+                        <h1 className="text-info-content text-4xl font-bold text-gray-900 mb-2 font-signature">
                             {user?.name}
                         </h1>
 
 
-                        <h2 className="text-xl font-semibold text-gray-700 mb-4 font-heading">
+                        <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-4 font-heading">
                             {user?.title}
                         </h2>
 
 
-                        <p className="text-base text-gray-600 font-description">
+                        <p className="text-info-content text-base text-gray-600 font-description">
                             {user?.bio}
                         </p>
                     </div>

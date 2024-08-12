@@ -64,30 +64,39 @@ const themeConfig: ThemeConfig = {
     buttonText: '#4a00ff',
     daisy: 'silver'
   },
+  // "rose": {
+  //   background: 'linear-gradient(to right, #E17AFE, #9BAAFF)',
+  //   primary: '#4a00ff',
+  //   secondary: '',
+  //   inactiveColor: '#333333',
+  //   buttonBackground: '#FFFFFF',
+  //   buttonText: '#4a00ff',
+  //   daisy: 'rose'
+  // },
   "rose": {
-    background: 'linear-gradient(to right, #E17AFE, #9BAAFF)',
-    primary: '#4a00ff',
+    background: 'linear-gradient(to right, #3A3A3A, #5A3B3C)',
+    primary: '#B76E79',
     secondary: '',
     inactiveColor: '#333333',
-    buttonBackground: '#FFFFFF',
+    buttonBackground: '#F2C1C1',
     buttonText: '#4a00ff',
     daisy: 'rose'
   },
   "silver": {
-    background: 'linear-gradient(to right, #be123c, #fb7185)',
-    primary: '#be123c',
+    background: 'linear-gradient(to right, #1F1F1F, #4D4D4D)',
+    primary: '#C0C0C0',
     secondary: '',
     inactiveColor: '#333333',
-    buttonBackground: '#FFFFFF',
+    buttonBackground: '#E0E0E0',
     buttonText: '#be123c',
     daisy: 'silver'
   },
   "gold": {
-    background: 'linear-gradient(to right, #0f766e, #34d399)',
-    primary: '#0f766e',
+    background: 'linear-gradient(to right, #2C2C2C, #1A1A1A)',
+    primary: '#C09A3E',
     secondary: '',
-    inactiveColor: '#333333',
-    buttonBackground: '#f0fdf4F',
+    inactiveColor: '#858585',
+    buttonBackground: '#E6C68B',
     buttonText: '#0f766e',
     daisy: 'gold'
   },

@@ -78,7 +78,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
                     />
                 </svg> */}
                 <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="24" height="24" fill="white" />
+                    <rect width="24" height="24" fill="none" />
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M2.14089 4.4021C2.34025 2.92963 3.63956 2 4.99004 2H7.55848C8.84977 2 9.99619 2.82629 10.4045 4.05132L11.454 7.19963C11.905 8.55283 11.1086 10.0036 9.72482 10.3496C9.38646 10.4342 9.26975 10.8555 9.51637 11.1022L12.8978 14.4836C13.1445 14.7303 13.5658 14.6135 13.6504 14.2752C13.9964 12.8914 15.4472 12.095 16.8004 12.546L19.9487 13.5955C21.1737 14.0038 22 15.1502 22 16.4415V19.01C22 20.3604 21.0704 21.6598 19.5979 21.8591C18.9114 21.9521 18.211 22 17.5 22C8.93959 22 2 15.0604 2 6.5C2 5.78898 2.04794 5.08863 2.14089 4.4021Z" fill={`${activeButton === 4 ? `${theme?.inactiveColor}` : `currentColor`}`} />
                     <path d="M20 7C20 7.55229 20.4477 8 21 8C21.5523 8 22 7.55229 22 7L22 3.5C22 2.67157 21.3284 2 20.5 2H17C16.4477 2 16 2.44772 16 3C16 3.55228 16.4477 4 17 4L18.5858 4L14.2929 8.29289C13.9024 8.68342 13.9024 9.31658 14.2929 9.70711C14.6834 10.0976 15.3166 10.0976 15.7071 9.70711L20 5.41421L20 7Z" fill={`${activeButton === 4 ? `${theme?.inactiveColor}` : `currentColor`}`} />
                 </svg>
@@ -216,7 +216,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
                         <svg width="80" height="80" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
                             <title>plus-circle</title>
                             <desc>Created with Sketch Beta.</desc>
-                            <g id="Page-1" stroke={`${isMoved == true ? `currentColor` : 'none'}`} strokeWidth="1" fill="none" fillRule="evenodd">
+                            <g id="Page-1" stroke={`${isMoved == true ? `currentColor` : 'transparent'}`} strokeWidth="1" fill="none" fillRule="evenodd">
                                 <g id="Icon-Set-Filled" transform="translate(-466, -1089)" fill={`${isMoved == true ? `${theme?.buttonBackground}` : `currentColor`}`}>
                                     <path d="M488,1106 L483,1106 L483,1111 C483,1111.55 482.553,1112 482,1112 C481.447,1112 481,1111.55 481,1111 L481,1106 L476,1106 C475.447,1106 475,1105.55 475,1105 C475,1104.45 475.447,1104 476,1104 L481,1104 L481,1099 C481,1098.45 481.447,1098 482,1098 C482.553,1098 483,1098.45 483,1099 L483,1104 L488,1104 C488.553,1104 489,1104.45 489,1105 C489,1105.55 488.553,1106 488,1106 L488,1106 Z M482,1089 C473.163,1089 466,1096.16 466,1105 C466,1113.84 473.163,1121 482,1121 C490.837,1121 498,1113.84 498,1105 C498,1096.16 490.837,1089 482,1089 L482,1089 Z" />
                                 </g>

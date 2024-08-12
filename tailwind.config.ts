@@ -26,9 +26,23 @@ const config: Config = {
   daisyui: {
     themes: [
       {
+        // rose: {
+        //   "primary": "#4a00ff",
+        //   "primary-content": "#ffffff",
+        //   "secondary": "#f6d860",
+        //   "secondary-content": "#f6d860",
+        //   "accent": "#37cdbe",
+        //   "accent-content": "#37cdbe",
+        //   "neutral": "#3d4451",
+        //   "neutral-content": "#3d4451",
+        //   "base-100": "#ffffff",
+        //   "base-content": "#333333",
+        //   "info": "#3d4451",
+        //   "info-content": "#000000",
+        // },
         rose: {
-          "primary": "#4a00ff",
-          "primary-content": "#ffffff",
+          "primary": "#B76E79",
+          "primary-content": "#4C4C4C",
           "secondary": "#f6d860",
           "secondary-content": "#f6d860",
           "accent": "#37cdbe",
@@ -38,25 +52,25 @@ const config: Config = {
           "base-100": "#ffffff",
           "base-content": "#333333",
           "info": "#3d4451",
-          "info-content": "#3d4451",
+          "info-content": "#F2C1C1",
         },
         gold: {
-          "primary": "#0f766e",
-          "primary-content": "#ffffff",
+          "primary": "#C09A3E",
+          "primary-content": "#3B3B3B",
           "secondary": "#34d399",
           "secondary-content": "#ffffff",
           "accent": "#1e3a8a",
           "accent-content": "#ffffff",
           "neutral": "#4b5563",
-          "neutral-content": "#ffffff",
+          "neutral-content": "#B0B0B0",
           "base-100": "#f0fdf4",
           "base-content": "#1f2937",
           "info": "#2563eb",
-          "info-content": "#ffffff"
+          "info-content": "#E6C68B"
         },
         silver: {
-          "primary": "#be123c",
-          "primary-content": "#ffffff",
+          "primary": "#C0C0C0",
+          "primary-content": "#2A2A2A",
           "secondary": "#fb7185",
           "secondary-content": "#ffffff",
           "accent": "#a21caf",
@@ -66,7 +80,7 @@ const config: Config = {
           "base-100": "#ffffff",
           "base-content": "#1e293b",
           "info": "#3b82f6",
-          "info-content": "#ffffff"
+          "info-content": "#E0E0E0"
         },
       },
       "dark",

@@ -20,7 +20,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
     } as React.CSSProperties;
     return (
         <>
-            <div className="bg-primary-content card w-96"
+            <div className={`bg-primary-content card ${theme?.daisy === 'silver' ? 'glass' : ''} w-96`}
             >
                 {/* <img style={{
                     height: 400,

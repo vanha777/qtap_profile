@@ -36,7 +36,7 @@ export interface Social {
   icons: string;
 };
 
-export interface Media  {
+export interface Media {
   media: string;
   type: string;
   info: string;
@@ -83,12 +83,12 @@ const themeConfig: ThemeConfig = {
   //   daisy: 'rose'
   // },
   "silver": {
-     // background: 'linear-gradient(to right, #000000, #2272FF)',
-    background: 'linear-gradient(to right, #1F1F1F, #4D4D4D)',
+    // background: 'linear-gradient(to right, #C0C0C0, #333333)',
+    background: '#0d0d0d',
     primary: '#C0C0C0',
     secondary: '',
     inactiveColor: '#333333',
-    buttonBackground: '#E0E0E0',
+    buttonBackground: '#2A2A2A',
     buttonText: '#be123c',
     daisy: 'silver'
   },

@@ -83,6 +83,7 @@ const themeConfig: ThemeConfig = {
   //   daisy: 'rose'
   // },
   "silver": {
+     // background: 'linear-gradient(to right, #000000, #2272FF)',
     background: 'linear-gradient(to right, #1F1F1F, #4D4D4D)',
     primary: '#C0C0C0',
     secondary: '',
@@ -92,11 +93,12 @@ const themeConfig: ThemeConfig = {
     daisy: 'silver'
   },
   "gold": {
-    background: 'linear-gradient(to right, #2C2C2C, #1A1A1A)',
-    primary: '#C09A3E',
+    background: 'linear-gradient(to right, #333333, #0d0d0d)',
+    // background: 'linear-gradient(to right, #002F6C, #000000)',
+    primary: '#F9E73E',
     secondary: '',
     inactiveColor: '#858585',
-    buttonBackground: '#E6C68B',
+    buttonBackground: '#0d0d0d',
     buttonText: '#0f766e',
     daisy: 'gold'
   },

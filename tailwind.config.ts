@@ -55,18 +55,18 @@ const config: Config = {
         //   "info-content": "#000000",
         // },
         gold: {
-          "primary": "#C09A3E",
-          "primary-content": "#3B3B3B",
+          "primary": "#F9E73E",
+          "primary-content": "#0d0d0d",
           "secondary": "#34d399",
           "secondary-content": "#ffffff",
           "accent": "#1e3a8a",
           "accent-content": "#ffffff",
           "neutral": "#4b5563",
-          "neutral-content": "#B0B0B0",
+          "neutral-content": "#0d0d0d",
           "base-100": "#f0fdf4",
           "base-content": "#1f2937",
           "info": "#2563eb",
-          "info-content": "#E6C68B"
+          "info-content": "#FFFFFF"
         },
         silver: {
           "primary": "#C0C0C0",

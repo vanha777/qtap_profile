@@ -4,40 +4,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { useState } from 'react';
-
-type Media = {
-    media: string;
-    type: string;
-    info: string;
-};
-
-// Define the types for social and media objects
-type Social = {
-    link: string;
-    platforms: string;
-    icons: string;
-};
-
-// Define the type for the user object
-type User = {
-    photo: string;
-    name: string;
-    title: string;
-    bio: string;
-    social: Social[];
-    media: Media[];
-};
-
-type Theme = {
-    background: string;
-    primary: string;
-    secondary: string;
-    inactiveColor?: string;
-    textColor?: string; // Optional property for text color
-    borderColor?: string;
-    buttonBackground: string
-    buttonText?: String
-};
+import { Theme, Media, User } from '../../themeConfig';
 
 interface MediaProps {
     theme?: Theme;
@@ -47,10 +14,10 @@ interface MediaProps {
 }
 
 const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
-   // Inline style to set the dynamic ring color
-   const style: React.CSSProperties = {
-    '--ring-color': '#000' || '#000', // Set custom property, fallback to #000
-  } as React.CSSProperties;
+    // Inline style to set the dynamic ring color
+    const style: React.CSSProperties = {
+        '--ring-color': '#000' || '#000', // Set custom property, fallback to #000
+    } as React.CSSProperties;
     return (
         <>
             <div className="bg-primary-content card w-96"
@@ -74,8 +41,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                 <div className="relative">
                     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
                         <div className="avatar">
-                            <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
-                             >
+                            <div className={`w-24 rounded-full ring ring-primary ring-offset-base-100 ${theme?.daisy === 'rose' ? 'ring-offset-2' : ''}`}>
                                 <a>
                                     <img src={user?.photo} alt="avatar" />
                                 </a>

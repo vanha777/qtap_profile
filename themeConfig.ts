@@ -25,7 +25,9 @@ export interface Theme {
   textColor?: string; // Optional property for text color
   borderColor?: string;
   buttonBackground: string
-  buttonText?: String
+  menuButtonBackground:string
+  buttonText?: string
+  avatarBorder:string
 
 }
 
@@ -56,20 +58,24 @@ export interface User {
 
 const themeConfig: ThemeConfig = {
   "": {
+    avatarBorder: 'linear-gradient(to right, #C0C0C0, #333333)',
     background: 'bg-gradient-rose-gold',
     primary: '#4a00ff',
     secondary: '',
     inactiveColor: '#333333',
     buttonBackground: '#FFFFFF',
+    menuButtonBackground: '#FFFFFF',
     buttonText: '#4a00ff',
     daisy: 'silver'
   },
   "rose": {
+    avatarBorder: 'linear-gradient(to right, #4a00ff, #F6C0BA)',
     background: 'linear-gradient(to right, #E17AFE, #9BAAFF)',
     primary: '#4a00ff',
     secondary: '',
-    inactiveColor: '#333333',
-    buttonBackground: '#FFFFFF',
+    inactiveColor: '2',
+    buttonBackground: '#4a00ff',
+    menuButtonBackground: '#4a00ff',
     buttonText: '#4a00ff',
     daisy: 'rose'
   },
@@ -83,22 +89,25 @@ const themeConfig: ThemeConfig = {
   //   daisy: 'rose'
   // },
   "silver": {
-    // background: 'linear-gradient(to right, #C0C0C0, #333333)',
+    avatarBorder: 'linear-gradient(90deg, #DC419B, #F5895C)',
     background: '#0d0d0d',
-    primary: '#C0C0C0',
+    primary: '#DC419B',
     secondary: '',
-    inactiveColor: '#333333',
-    buttonBackground: '#2A2A2A',
-    buttonText: '#be123c',
+    inactiveColor: '1',
+    buttonBackground: '#DC419B',
+    menuButtonBackground: '#DC419B',
+    buttonText: '#dc419b',
     daisy: 'silver'
   },
   "gold": {
-    background: 'linear-gradient(to right, #333333, #0d0d0d)',
+    avatarBorder: 'linear-gradient(to right, #FFD700, #99621E)',
+    background: 'url(/black_water.png)',
     // background: 'linear-gradient(to right, #002F6C, #000000)',
     primary: '#F9E73E',
     secondary: '',
-    inactiveColor: '#858585',
-    buttonBackground: '#0d0d0d',
+    inactiveColor: '3',
+    buttonBackground: '#FFD700',
+    menuButtonBackground: '#FFD700',
     buttonText: '#0f766e',
     daisy: 'gold'
   },

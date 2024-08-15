@@ -56,20 +56,20 @@ const config: Config = {
         // },
         gold: {
           "primary": "#F9E73E",
-          "primary-content": "#0d0d0d",
+          "primary-content": "#0A0A0A",
           "secondary": "#34d399",
           "secondary-content": "#ffffff",
           "accent": "#1e3a8a",
           "accent-content": "#ffffff",
           "neutral": "#4b5563",
-          "neutral-content": "#0d0d0d",
+          "neutral-content": "#B0B0B0",
           "base-100": "#f0fdf4",
           "base-content": "#1f2937",
           "info": "#2563eb",
           "info-content": "#FFFFFF"
         },
         silver: {
-          "primary": "#C0C0C0",
+          "primary": "#DC419B",
           "primary-content": "#2A2A2A",
           "secondary": "#fb7185",
           "secondary-content": "#ffffff",
@@ -80,7 +80,7 @@ const config: Config = {
           "base-100": "#ffffff",
           "base-content": "#1e293b",
           "info": "#3b82f6",
-          "info-content": "#E0E0E0"
+          "info-content": "#ffffff"
         },
       },
       "dark",

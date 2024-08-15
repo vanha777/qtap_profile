@@ -20,7 +20,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
     } as React.CSSProperties;
     return (
         <>
-            <div className={`bg-primary-content card ${theme?.daisy === 'silver' ? 'glass' : ''} w-96`}
+            <div className={`bg-primary-content card ${theme?.daisy === 'rose' ? '' : 'glass'} w-96`}
             >
                 {/* <img style={{
                     height: 400,
@@ -41,10 +41,22 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                 <div className="relative">
                     <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
                         <div className="avatar">
-                            <div className={`w-24 rounded-full ring ring-primary ring-offset-base-100 ${theme?.daisy === 'rose' ? 'ring-offset-2' : ''}`}>
+                            {/* <div className={`w-24 rounded-full ring ring-primary ring-offset-base-100 ${theme?.daisy === 'rose' ? 'ring-offset-2' : ''}`}>
                                 <a>
                                     <img src={user?.photo} alt="avatar" />
                                 </a>
+                            </div> */}
+                            <div className="w-24 h-24 rounded-full relative">
+                                <div
+                                    className={`absolute inset-0 rounded-full p-1 ${theme?.daisy === 'rose' ? 'ring-offset-2' : ''}`}
+                                    style={{
+                                        backgroundImage: `${theme?.avatarBorder}`,
+                                    }}
+                                >
+                                    <div className="w-full h-full rounded-full bg-base-100 p-[2px]">
+                                        <img src={user?.photo} alt="avatar" className="w-full h-full rounded-full object-cover" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -20,14 +20,15 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
     } as React.CSSProperties;
     return (
         <>
-            <div className={`bg-primary-content card ${theme?.daisy === 'rose' ? '' : 'glass'} w-96`}
+            <div className={`overflow-hidden bg-primary-content card ${theme?.daisy === 'rose' ? '' : 'glass'} `}
+            style={{ height: '480px',width:'320px' }}
             >
                 {/* <img style={{
                     height: 400,
                 }} src={media.media} alt="car!" /> */}
                 <video
                     style={{
-                        height: 400,
+                        height: 250,
                         width: 'auto', // Adjust as needed, or use '100%' if you want it to fill the width of its container
                         objectFit: 'cover' // Ensures the video covers the container without stretching
                     }}

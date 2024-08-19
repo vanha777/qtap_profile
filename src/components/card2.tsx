@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 import { motion, useAnimation, PanInfo } from 'framer-motion';
+import { Theme, Media, User } from '../../themeConfig';
+import Card from './card';
+import BackSide from './backSide';
+interface MediaProps {
+    theme?: Theme;
+    isMobile: boolean;
+    media: Media;
+    user?: User;
+}
 
-const SwipeFlipCard: React.FC = () => {
+const SwipeFlipCard: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
   const [flipped, setFlipped] = useState(false);
   const controls = useAnimation();
 
@@ -25,7 +34,7 @@ const SwipeFlipCard: React.FC = () => {
   };
 
   return (
-    <div style={{ perspective: '1000px', width: '300px', height: '200px' }}>
+    <div style={{ perspective: '1000px', width: '320px', height: '480px' }}>
       <motion.div
         style={{
           width: '100%',
@@ -45,7 +54,7 @@ const SwipeFlipCard: React.FC = () => {
             height: '100%',
             position: 'absolute',
             backfaceVisibility: 'hidden',
-            backgroundColor: '#fff',
+            // backgroundColor: '#fff',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -54,7 +63,7 @@ const SwipeFlipCard: React.FC = () => {
             fontWeight: 'bold',
           }}
         >
-          Front
+           <Card theme={theme} user={user} isMobile={isMobile} media={media} />
         </motion.div>
         <motion.div
           style={{
@@ -63,16 +72,16 @@ const SwipeFlipCard: React.FC = () => {
             position: 'absolute',
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
-            backgroundColor: '#ddd',
+            // backgroundColor: '#ddd',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: '#333',
+            // color: '#333',
             fontSize: '24px',
             fontWeight: 'bold',
           }}
         >
-          Back
+          <BackSide theme={theme} user={user} isMobile={isMobile} media={media} />
         </motion.div>
       </motion.div>
     </div>

@@ -27,6 +27,7 @@ export interface Theme {
   buttonBackground: string
   menuButtonBackground:string
   buttonText?: string
+  backBackground?:string
   avatarBorder:string
 
 }
@@ -90,7 +91,8 @@ const themeConfig: ThemeConfig = {
   // },
   "silver": {
     avatarBorder: 'linear-gradient(90deg, #DC419B, #F5895C)',
-    background: '#0d0d0d',
+    background: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/x.jpeg',
+    backBackground:'linear-gradient(90deg, #DC419B, #F5895C)',
     primary: '#DC419B',
     secondary: '',
     inactiveColor: '1',

@@ -31,9 +31,15 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
     }, [theme,user]);
 
     return (
-        <div className={`flex items-center justify-center`} 
+        <div className={`flex items-center justify-center overflow-hidden`} 
         style={{
-            background: `${theme?.background}`
+            // background: `${theme?.background}`,
+
+            backgroundImage: `url(${theme?.background})`,
+            backgroundSize: 'cover', // Adjust how the background image is sized
+            backgroundPosition: 'center', // Center the background image
+            // backdropFilter: 'blur(1px)', // Apply the blur effect
+       
         }}>
             {/* <div className="full-screen-gradient" > */}
             {user && (

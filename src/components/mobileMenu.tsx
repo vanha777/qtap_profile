@@ -57,7 +57,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
     return (
         // <div className="btm-nav fixed bottom-0 left-0 right-0 flex justify-around bg-white shadow-xl rounded-t-2xl z-10 p-2">
         <div
-            className={`btm-nav fixed bottom-0 left-0 right-0 flex justify-around shadow-xl rounded-t-2xl z-10 p-2 bg-primary-content ${theme?.daisy == 'rose' ? '' : 'glass'}`}
+            className={`btm-nav fixed bottom-0 left-0 right-0 flex justify-around shadow-xl rounded-t-2xl z-10 p-2 bg-primary-content ${theme?.daisy == 'gold' ? 'glass' : ''}`}
         >
             <button
                 className={`text-primary ${activeButton === 4 ? '' : ''}`}

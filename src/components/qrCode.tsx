@@ -10,19 +10,24 @@ interface ThemeProps {
 
 const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
     return (
-        <div className="items-center justify-center">
-            <div style={{
-                width: "200px", height: "200px",
-                transform: 'rotateZ(-5deg)', // Tilt by 20 degrees on X-axis
-                transformOrigin: 'center', // Ensure the transformation is centered
-            }}>
+        <div className="">
+            <div
+                className="flex items-center justify-center"
+                style={{
+                    width: "200px",
+                    height: "200px",
+                    transform: 'rotateZ(-5deg)', // Tilt by 5 degrees on Z-axis
+                    transformOrigin: 'center', // Ensure the transformation is centered
+                    backgroundColor: `${theme?.daisy == "silver" ? "white" : ""}`,
+                }}
+            >
                 <QRCodeSVG
                     value={`https://biz-profile.vercel.app/${theme?.daisy}/2`}
                     size={200}
                     bgColor="transparent"
                     fgColor={`url(#gradient${theme?.inactiveColor})`}
                     level="M" // Error correction level: L, M, Q, H
-                    includeMargin={false}
+                    includeMargin={true}
                 // imageSettings={{
                 //     src: "https://eazypic.s3.ap-southeast-4.amazonaws.com/IMG_2078.png",
                 //     height: 50,
@@ -60,7 +65,7 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
                     transformOrigin: 'center', // Ensure the transformation is centered
                 }}
             >
-                <h1 className="text-info-content text-4xl font-bold text-gray-900 mb-2 font-signature">
+                <h1 className={`${theme?.daisy == "silver" ? "text-accent-content" : "text-info-content"} text-4xl font-bold text-gray-900 mb-2 font-signature`}>
                     @{user?.name}
                 </h1>
             </div>

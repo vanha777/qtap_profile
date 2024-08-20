@@ -91,7 +91,7 @@ const themeConfig: ThemeConfig = {
   // },
   "silver": {
     avatarBorder: 'linear-gradient(90deg, #DC419B, #F5895C)',
-    background: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/x.jpeg',
+    background: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/Background+Colour+For+Silver+Card+Profile+.png',
     backBackground:'linear-gradient(90deg, #DC419B, #F5895C)',
     primary: '#DC419B',
     secondary: '',

@@ -20,6 +20,11 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
     } as React.CSSProperties;
     return (
         <>
+        <div style={{
+            
+        }}>
+
+      
             <div className={`bg-primary-content card ${theme?.daisy === 'gold' ? 'glass' : ''} `}
                 style={{
                     height: '550px', width: '350px',
@@ -86,6 +91,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                     </div>
 
                 </div>
+            </div>
             </div>
         </>
     )

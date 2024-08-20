@@ -12,7 +12,7 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
     return (
         <div className="">
             <div
-                className="flex items-center justify-center"
+                className="flex items-center justify-center rounded-box"
                 style={{
                     width: "200px",
                     height: "200px",

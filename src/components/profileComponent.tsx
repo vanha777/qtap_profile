@@ -33,9 +33,10 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
     return (
         <div className={`flex items-center justify-center overflow-hidden`} 
         style={{
-            // background: `${theme?.background}`,
+            
+            background: `${theme?.background}`,
 
-            backgroundImage: `url(${theme?.background})`,
+            backgroundImage: `${theme?.daisy == 'silver' ? `url(${theme?.background})` : ''}`,
             backgroundSize: 'cover', // Adjust how the background image is sized
             backgroundPosition: 'center', // Center the background image
             // backdropFilter: 'blur(1px)', // Apply the blur effect

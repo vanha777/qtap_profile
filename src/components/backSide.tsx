@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useState } from 'react';
 import { Theme, Media, User } from '../../themeConfig';
-
+import SvgQRCode from './qrCode';
 interface MediaProps {
     theme?: Theme;
     isMobile: boolean;
@@ -20,10 +20,10 @@ const BackSide: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
     } as React.CSSProperties;
     return (
         <>
-            <div className={`overflow-hidden bg-primary-content card ${theme?.daisy === 'rose' ? '' : 'glass'} `}
-            style={{ height: '480px',width:'320px' }}
+            <div className={`overflow-hidden items-center justify-center bg-primary-content card ${theme?.daisy === 'rose' ? '' : 'glass'} `}
+                style={{ height: '480px', width: '320px' }}
             >
-                
+                <SvgQRCode theme={theme} user={user} />
             </div>
         </>
     )

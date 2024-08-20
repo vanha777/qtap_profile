@@ -41,7 +41,7 @@ const SwipeFlipCard: React.FC<MediaProps> = ({ theme, media, isMobile, user }) =
           height: '100%',
           position: 'relative',
           transformStyle: 'preserve-3d',
-          transition: 'transform 0.6s',
+          transition: 'transform 0.17s',
         }}
         animate={flipped ? 'back' : 'front'}
         variants={flipVariants}
@@ -59,8 +59,8 @@ const SwipeFlipCard: React.FC<MediaProps> = ({ theme, media, isMobile, user }) =
             alignItems: 'center',
             justifyContent: 'center',
             color: '#333',
-            fontSize: '24px',
-            fontWeight: 'bold',
+            // fontSize: '24px',
+            // fontWeight: 'bold',
           }}
         >
            <Card theme={theme} user={user} isMobile={isMobile} media={media} />
@@ -77,8 +77,8 @@ const SwipeFlipCard: React.FC<MediaProps> = ({ theme, media, isMobile, user }) =
             alignItems: 'center',
             justifyContent: 'center',
             // color: '#333',
-            fontSize: '24px',
-            fontWeight: 'bold',
+            // fontSize: '24px',
+            // fontWeight: 'bold',
           }}
         >
           <BackSide theme={theme} user={user} isMobile={isMobile} media={media} />

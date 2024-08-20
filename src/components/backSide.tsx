@@ -20,7 +20,7 @@ const BackSide: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
     } as React.CSSProperties;
     return (
         <>
-            <div className={`overflow-hidden items-center justify-center bg-primary-content card ${theme?.daisy === 'rose' ? '' : 'glass'} `}
+            <div className={`overflow-hidden items-center justify-center bg-primary-content card ${theme?.daisy === 'rose' ? 'glass' : 'glass'} `}
                 style={{ height: '480px', width: '320px' }}
             >
                 <SvgQRCode theme={theme} user={user} />

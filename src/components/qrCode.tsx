@@ -42,9 +42,9 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
                         </linearGradient>
                     </defs>
                 </svg>
-                <div className="mt-10">
+                {/* <div className="mt-10">
                     <AnimatedText user={user} />
-                </div>
+                </div> */}
 
 
             </div>

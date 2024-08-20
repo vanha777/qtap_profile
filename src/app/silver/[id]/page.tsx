@@ -67,8 +67,8 @@ export default function ProfilePage() {
                     photo: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/IMG_2078.png',
                     phone:"+61413906792",
                     email:"sofiang2407@gmail.com",
-                    title: 'Social Media Lover',
-                    bio: 'A business leader, entrepreneur, and active community member.',
+                    title: 'Social Media Strategist',
+                    bio: 'I love helping content creators to build authentic brands that truly stand out.',
                     social: [
                         {
                             link: 'https://mysite.mynuskin.com/content/nuskin/en_AU/mysite/mysite-home.mysite.sofiabeautyworld.html?storeId=AS00220965#home',

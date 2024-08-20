@@ -70,12 +70,12 @@ const config: Config = {
         },
         silver: {
           "primary": "#DC419B",
-          "primary-content": "#ffffff",
+          "primary-content": "#F0F0F0", //#ffffff
           "secondary": "#fb7185",
           "secondary-content": "#ffffff",
           "accent": "#FAF9F6",
           "accent-content": "#ffffff",
-          "neutral": "#ffffff",
+          "neutral": "#F0F0F0",
           "neutral-content": "#ffffff",
           "base-100": "#ffffff",
           "base-content": "#1e293b",

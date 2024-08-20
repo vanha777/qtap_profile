@@ -18,7 +18,7 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
                     height: "200px",
                     transform: 'rotateZ(-5deg)', // Tilt by 5 degrees on Z-axis
                     transformOrigin: 'center', // Ensure the transformation is centered
-                    backgroundColor: `${theme?.daisy == "silver" ? "white" : ""}`,
+                    backgroundColor: `${theme?.daisy == "silver" ? "#F0F0F0" : ""}`,
                 }}
             >
                 <QRCodeSVG

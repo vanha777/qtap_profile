@@ -90,7 +90,7 @@ const SwipeFlipCard: React.FC<MediaProps> = ({ theme, media, isMobile, user }) =
           height: '100%',
           position: 'relative',
           transformStyle: 'preserve-3d',
-          transition: 'transform 0.17s',
+          transition: 'transform 0.10s',
         }}
         animate={{ rotateY: rotationY }}
         // variants={flipVariants}

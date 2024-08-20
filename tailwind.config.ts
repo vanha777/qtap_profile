@@ -26,7 +26,7 @@ const config: Config = {
   daisyui: {
     themes: [
       {
-        rose: {
+        silver: {
           "primary": "#4a00ff",
           "primary-content": "#ffffff",
           "secondary": "#f6d860",
@@ -68,7 +68,7 @@ const config: Config = {
           "info": "#2563eb",
           "info-content": "#FFFFFF"
         },
-        silver: {
+        rose: {
           "primary": "#DC419B",
           "primary-content": "#F0F0F0", //#ffffff
           "secondary": "#fb7185",

@@ -23,7 +23,7 @@ const BackSide: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
             <div className={`overflow-hidden items-center justify-center bg-primary-content card ${theme?.daisy === 'silver' ? '' : 'glass'} `}
                 style={{
                     height: '550px', width: '350px',
-                    background: `${theme?.daisy == "silver" ? `${theme?.backBackground}` : ""}`
+                    background: `${theme?.daisy == "rose" ? `${theme?.backBackground}` : ""}`
 
                 }}
             >

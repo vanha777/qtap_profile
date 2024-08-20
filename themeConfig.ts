@@ -69,7 +69,7 @@ const themeConfig: ThemeConfig = {
     buttonText: '#4a00ff',
     daisy: 'silver'
   },
-  "rose": {
+  "silver": {
     avatarBorder: 'linear-gradient(to right, #4a00ff, #F6C0BA)',
     background: 'linear-gradient(to right, #E17AFE, #9BAAFF)',
     primary: '#4a00ff',
@@ -78,7 +78,7 @@ const themeConfig: ThemeConfig = {
     buttonBackground: '#4a00ff',
     menuButtonBackground: '#4a00ff',
     buttonText: '#4a00ff',
-    daisy: 'rose'
+    daisy: 'silver'
   },
   // "rose": {
   //   background: 'linear-gradient(135deg, #FFECF0 0%, #E6F7FF 100%)',
@@ -89,7 +89,7 @@ const themeConfig: ThemeConfig = {
   //   buttonText: '#E29587',
   //   daisy: 'rose'
   // },
-  "silver": {
+  "rose": {
     avatarBorder: 'linear-gradient(90deg, #DC419B, #F5895C)',
     // background: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/Background+Colour+For+Silver+Card+Profile+.png',
     background: '/test.png',
@@ -100,7 +100,7 @@ const themeConfig: ThemeConfig = {
     buttonBackground: '#DC419B',
     menuButtonBackground: '#DC419B',
     buttonText: '#dc419b',
-    daisy: 'silver'
+    daisy: 'rose'
   },
   "gold": {
     avatarBorder: 'linear-gradient(to right, #FFD700, #99621E)',

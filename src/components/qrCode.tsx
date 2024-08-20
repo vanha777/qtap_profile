@@ -65,7 +65,7 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
                     transformOrigin: 'center', // Ensure the transformation is centered
                 }}
             >
-                <h1 className={`${theme?.daisy == "silver" ? "text-accent-content" : "text-info-content"} text-4xl font-bold text-gray-900 mb-2 font-signature`}>
+                <h1 className={`${theme?.daisy == "silver" ? "text-neutral" : "text-info-content"} text-4xl font-bold text-gray-900 mb-2 font-signature`}>
                     @{user?.name}
                 </h1>
             </div>

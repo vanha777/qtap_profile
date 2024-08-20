@@ -11,7 +11,11 @@ interface ThemeProps {
 const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
     return (
         <div className="items-center justify-center">
-            <div style={{ width: "200px", height: "200px" }}>
+            <div style={{
+                width: "200px", height: "200px",
+                transform: 'rotateZ(-5deg)', // Tilt by 20 degrees on X-axis
+                transformOrigin: 'center', // Ensure the transformation is centered
+            }}>
                 <QRCodeSVG
                     value={`https://biz-profile.vercel.app/${theme?.daisy}/2`}
                     size={200}
@@ -43,10 +47,22 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
                     </defs>
                 </svg>
                 {/* <div className="mt-10">
-                    <AnimatedText user={user} />
+                    <h1 className="text-info-content text-4xl font-bold text-gray-900 mb-2 font-signature">
+                        @{user?.name}
+                    </h1>
                 </div> */}
-
-
+            </div>
+            <div
+                className="mt-10"
+                style={{
+                    // Applying tilt directly to the element
+                    transform: 'rotateZ(5deg)', // Tilt by 20 degrees on X-axis
+                    transformOrigin: 'center', // Ensure the transformation is centered
+                }}
+            >
+                <h1 className="text-info-content text-4xl font-bold text-gray-900 mb-2 font-signature">
+                    @{user?.name}
+                </h1>
             </div>
         </div>
 

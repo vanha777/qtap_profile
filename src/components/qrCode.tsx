@@ -13,7 +13,7 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
         <div className="items-center justify-center">
             <div style={{ width: "200px", height: "200px" }}>
                 <QRCodeSVG
-                    value="https://example.com"
+                    value={`https://biz-profile.vercel.app/${theme?.daisy}/2`}
                     size={200}
                     bgColor="transparent"
                     fgColor={`url(#gradient${theme?.inactiveColor})`}

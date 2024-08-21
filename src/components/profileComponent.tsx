@@ -31,9 +31,9 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
     }, [theme,user]);
 
     return (
-        <div className={`flex items-center justify-center overflow-hidden`} 
+        <div className={`flex items-center justify-center overflow-hidden fixed`} 
         style={{
-            
+
             background: `${theme?.background}`,
 
             backgroundImage: `${theme?.daisy == 'rose' ? `url(${theme?.background})` : ''}`,
@@ -50,7 +50,7 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
             }
             {/* {activeButton === 1 && */}
             {user !== undefined && (
-                <div className="h-screen w-screen flex items-center justify-center p-5 pb-20">
+                <div className="h-screen w-screen flex items-center justify-center p-5 pb-20 overflow-hidden">
                     <Slider theme={theme} user={user} />
                 </div>
             )

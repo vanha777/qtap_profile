@@ -27,7 +27,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
       
             <div className={`bg-primary-content card ${theme?.daisy === 'gold' ? 'glass' : ''} `}
                 style={{
-                    height: '550px', width: '350px',
+                    height: '550px', width: '320px',
                     overflowY: 'auto', // Enable vertical scrolling
                     // overflowX: 'auto',
                 }}

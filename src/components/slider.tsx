@@ -32,7 +32,7 @@ const Slider: React.FC<SliderItemProps> = ({ theme,user }) => {
 
     return (
 
-        <div className="carousel carousel-vertical rounded-box">
+        <div className="carousel carousel-vertical rounded-box overflow-hidden fixed">
             {user?.media.map((media) => (
              <div className="carousel-item">
                 {/* <Card theme={theme} user={user} isMobile={isMobile} media={media} /> */}

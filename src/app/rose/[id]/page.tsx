@@ -100,7 +100,7 @@ export default function ProfilePage() {
     }, [router]);
 
     return (
-        <div data-theme={`${daisyTheme}`}>
+        <div data-theme={`${daisyTheme}`} className='fixed'>
             <ProfileComponent theme={cssTheme} user={user} />
         </div>
 

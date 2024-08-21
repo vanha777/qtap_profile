@@ -29,7 +29,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                 style={{
                     height: '550px', width: '350px',
                     overflowY: 'auto', // Enable vertical scrolling
-                    overflowX: 'auto',
+                    // overflowX: 'auto',
                 }}
             >
                 {/* <img style={{

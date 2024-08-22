@@ -73,22 +73,22 @@ export default function ProfilePage() {
                         {
                             link: 'https://mysite.mynuskin.com/content/nuskin/en_AU/mysite/mysite-home.mysite.sofiabeautyworld.html?storeId=AS00220965#home',
                             platforms: 'Nuskin',
-                            icons: 'https://example.com/twitter-icon.png'
+                            icons: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/theme/IMG_9913.png'
                         },
                         {
                             link: 'https://www.facebook.com/sofiang2407',
                             platforms: 'Facebook',
-                            icons: 'https://example.com/linkedin-icon.png'
+                            icons: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/theme/faceBook.svg'
                         },
                         {
                             link: 'https://www.instagram.com/sofia.socialbae',
                             platforms: 'Instargram',
-                            icons: 'https://example.com/twitter-icon.png'
+                            icons: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/theme/instargram.svg'
                         }
                     ],
                     media: [
                         {
-                            media: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/IMG_8651.MOV',
+                            media: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/video/IMG_8651.MOV?t=2024-08-22T10%3A18%3A39.819Z',
                             type: 'video',
                             info: 'This is a test video'
                         }

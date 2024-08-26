@@ -9,10 +9,46 @@ interface ThemeProps {
 }
 
 const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
+    const generateVCard = () => {
+        const vCardData = `BEGIN:VCARD
+    VERSION:3.0
+    FN:John Doe
+    ORG:Example Company
+    TEL:+1234567890
+    EMAIL:john.doe@example.com
+    END:VCARD`;
+    
+        const blob = new Blob([vCardData], { type: 'text/vcard' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'contact.vcf'; // File name for the downloaded vCard
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+    const handleShare = async () => {
+        if (navigator.share) {
+          try {
+            await navigator.share({
+                title: '🚀 Discover My Digital Business Card!',
+                text: '📈 Connect with me easily and instantly. Check out my digital business card with all my contact details and social links. Just a click away!',
+              url: `${`${user?.qr_code ? `${user.qr_code}` : `https://biz-profile.vercel.app/@${user?.username}`}`}`,
+            });
+            console.log('Link shared successfully');
+          } catch (error) {
+            console.error('Error sharing the link:', error);
+          }
+        } else {
+          alert('Web Share API is not supported in your browser.');
+        }
+      };
+
     return (
-        <div className="">
+        <div className="flex flex-col items-center justify-center">
             <div
-                className="flex items-center justify-center rounded-box"
+                className=" rounded-box"
                 style={{
                     width: "200px",
                     height: "200px",
@@ -22,7 +58,8 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
                 }}
             >
                 <QRCodeSVG
-                    value={`https://biz-profile.vercel.app/${theme?.daisy}/2`}
+                    // value={`https://biz-profile.vercel.app/${theme?.daisy}/2`}
+                    value={`${user?.qr_code ? `${user.qr_code}` : `https://biz-profile.vercel.app/@${user?.username}`}`}
                     size={200}
                     bgColor="transparent"
                     fgColor={`url(#gradient${theme?.inactiveColor})`}
@@ -69,6 +106,22 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
                     @{user?.name}
                 </h1>
             </div>
+
+            {/* <div className="flex flex-row justify-between mt-10 ">
+                <button className="btn btn-circle mx-8" onClick={handleShare}>
+                    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 13V17.5C20 20.5577 16 20.5 12 20.5C8 20.5 4 20.5577 4 17.5V13M12 3L12 15M12 3L16 7M12 3L8 7" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <button className="btn btn-circle mx-8" onClick={generateVCard}>
+                    <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="Interface / Download">
+                            <path id="Vector" d="M6 21H18M12 3V17M12 17L17 12M12 17L7 12" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </g>
+                    </svg>
+                </button>
+            </div> */}
+
         </div>
 
     );

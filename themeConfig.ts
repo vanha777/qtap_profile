@@ -51,6 +51,8 @@ export interface User {
   photo: string;
   phone: string;
   email: string;
+  qr_code?: string;
+  username?: string;
   title: string;
   bio: string;
   social: Social[];

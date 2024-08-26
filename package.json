@@ -9,17 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.45.2",
     "daisyui": "^4.12.10",
     "framer-motion": "^11.3.21",
     "next": "14.2.5",
     "qrcode.react": "^3.1.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "vcards-js": "^2.10.0"
   },
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/vcards-js": "^2.10.5",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",

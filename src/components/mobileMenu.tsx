@@ -1,6 +1,5 @@
 "use client";
 
-
 import Link from 'next/link';
 import React from 'react';
 import { useRef, useEffect, useState } from 'react';
@@ -95,11 +94,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
                     }}
                 >
                     <a
-                        href={user?.social[1].link} // Replace with the URL you want to redirect to
+                        href={user?.social[1]?.link} // Replace with the URL you want to redirect to
                         target="_blank" // Opens the link in a new tab
                         rel="noopener noreferrer"
                         className='rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
-                        <img src={user?.social[1].icons} alt="SVG Image" />
+                        <img src={user?.social[1]?.icons} alt="SVG Image" />
                     </a>
                 </motion.div>
                 <motion.div
@@ -127,7 +126,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
                         target="_blank" // Opens the link in a new tab
                         rel="noopener noreferrer"
                         className='rounded-full flex items-center justify-center' style={{ height: '4.25rem', width: '4.25rem', marginTop: '-3rem' }}>
-                            <img src={user?.social[2].icons} alt="SVG Image" />
+                        <img src={user?.social[2]?.icons} alt="SVG Image" />
                     </a>
                 </motion.div>
                 <motion.div
@@ -151,7 +150,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
                     }}
                 >
                     <a
-                        href={user?.social[0].link} // Replace with the URL you want to redirect to
+                        href={user?.social[0]?.link} // Replace with the URL you want to redirect to
                         target="_blank" // Opens the link in a new tab
                         rel="noopener noreferrer"
                         className='rounded-full flex items-center justify-center bg-transparent' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
@@ -160,7 +159,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
                             height: '90%',
 
                             borderRadius: '50%' // Make sure the image is rounded like the parent div
-                        }} src={user?.social[0].icons} />
+                        }} src={user?.social[0]?.icons} />
                     </a>
                 </motion.div>
                 <motion.div

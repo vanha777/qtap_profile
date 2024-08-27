@@ -17,7 +17,7 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
     TEL:+1234567890
     EMAIL:john.doe@example.com
     END:VCARD`;
-    
+
         const blob = new Blob([vCardData], { type: 'text/vcard' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -27,23 +27,23 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-      };
+    };
     const handleShare = async () => {
         if (navigator.share) {
-          try {
-            await navigator.share({
-                title: '🚀 Discover My Digital Business Card!',
-                text: '📈 Connect with me easily and instantly. Check out my digital business card with all my contact details and social links. Just a click away!',
-              url: `${`${user?.qr_code ? `${user.qr_code}` : `https://biz-profile.vercel.app/@${user?.username}`}`}`,
-            });
-            console.log('Link shared successfully');
-          } catch (error) {
-            console.error('Error sharing the link:', error);
-          }
+            try {
+                await navigator.share({
+                    title: '🚀 Discover My Digital Business Card!',
+                    text: '📈 Connect with me easily and instantly. Check out my digital business card with all my contact details and social links. Just a click away!',
+                    url: `${`${user?.qr_code ? `${user.qr_code}` : `https://biz-profile.vercel.app/@${user?.username}`}`}`,
+                });
+                console.log('Link shared successfully');
+            } catch (error) {
+                console.error('Error sharing the link:', error);
+            }
         } else {
-          alert('Web Share API is not supported in your browser.');
+            alert('Web Share API is not supported in your browser.');
         }
-      };
+    };
 
     return (
         <div className="flex flex-col items-center justify-center">
@@ -59,7 +59,7 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
             >
                 <QRCodeSVG
                     // value={`https://biz-profile.vercel.app/${theme?.daisy}/2`}
-                    value={`${user?.qr_code ? `${user.qr_code}` : `https://biz-profile.vercel.app/@${user?.username}`}`}
+                    value={`${user?.qr_code ? `${user.qr_code}` : `https://biz-touch.me/@${user?.username}`}`}
                     size={200}
                     bgColor="transparent"
                     fgColor={`url(#gradient${theme?.inactiveColor})`}

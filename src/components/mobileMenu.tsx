@@ -54,14 +54,32 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
             // setActiveButton(1);
         }
     };
-    const createAndDownloadVCard = () => {
+    // const avatarBase64 = async () => {
+    //     if (user?.photo) {
+    //         return await getBase64FromUrl(user.photo);
+    //     }
+    //     return '';
+    // };
+    const createAndDownloadVCard = async () => {
         if (!user) return;
+        let avatarBase64 = '';
+        if (user?.photo) {
+          try {
+            avatarBase64 = await getBase64FromUrl(user?.photo);
+          } catch (error) {
+            console.error('Error fetching avatar:', error);
+          }
+        }
 
         const vCard = `BEGIN:VCARD
 VERSION:3.0
 FN:${user.name}
+TITLE:${user.title}
 TEL:${user.phone}
 EMAIL:${user.email}
+URL:${`https://biz-touch.me/@${user?.username}`}
+PHOTO;TYPE=JPEG;ENCODING=BASE64:${avatarBase64}
+NOTE:"🚀 Connected via Biz-touch! Let's make business fun and profitable together. Coffee chat soon? ☕️"
 END:VCARD`;
 
         const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
@@ -246,3 +264,17 @@ END:VCARD`;
 }
 
 export default MobileMenu;
+
+async function getBase64FromUrl(url: string): Promise<string> {
+    const response = await fetch(url);
+    const blob = await response.blob();
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const base64 = reader.result as string;
+        resolve(base64.split(',')[1]); // Remove the data URL prefix
+      };
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  }

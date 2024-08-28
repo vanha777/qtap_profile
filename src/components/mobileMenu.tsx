@@ -42,17 +42,38 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
     const [isMoved, setIsMoved] = useState(false);
     const handleButtonClick = (buttonIndex: number) => {
         if (buttonIndex == 3) {
-            setActiveButton(buttonIndex);
+            // setActiveButton(buttonIndex);
             const mailtoLink = `mailto:${user?.email}?subject=Subject&body=Body%20text`;
             window.location.href = mailtoLink;
-            setActiveButton(1);
+            // setActiveButton(1);
         } else if (buttonIndex == 4) {
-            setActiveButton(buttonIndex);
-            const phoneNumber = `tel:${user?.phone}`;
-            window.location.href = phoneNumber;
-            setActiveButton(1);
+            createAndDownloadVCard();
+            // setActiveButton(buttonIndex);
+            // const phoneNumber = `tel:${user?.phone}`;
+            // window.location.href = phoneNumber;
+            // setActiveButton(1);
         }
     };
+    const createAndDownloadVCard = () => {
+        if (!user) return;
+
+        const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:${user.name}
+TEL:${user.phone}
+EMAIL:${user.email}
+END:VCARD`;
+
+        const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', `${user.name}.vcf`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
+
     return (
         // <div className="btm-nav fixed bottom-0 left-0 right-0 flex justify-around bg-white shadow-xl rounded-t-2xl z-10 p-2">
         <div

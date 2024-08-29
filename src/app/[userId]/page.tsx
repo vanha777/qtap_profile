@@ -8,6 +8,7 @@ import { usePathname, useParams } from 'next/navigation';
 import ProfileComponent from '@/components/profileComponent';
 import { Theme, User } from '../../../themeConfig'
 import { Auth } from '@/lib/auth';
+import SEO from '@/components/seo'; 
 
 export default function ProfilePage() {
     const pathName = usePathname().replace('@', '').replace('/', '');
@@ -47,6 +48,7 @@ export default function ProfilePage() {
 
     return (
         <div data-theme={`${daisyTheme}`}>
+            <SEO title={user?.title} bio={user?.bio} imageUrl={user?.phone} url={`https://biz-touch.me/${user?.username}`} name={user?.name}  />
             <ProfileComponent theme={cssTheme} user={user} />
         </div>
 

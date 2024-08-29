@@ -7,9 +7,9 @@ import { useEffect } from "react";
 export default function Home() {
   const router = useRouter();
 
-  // useEffect(() => {
-  //   router.replace("https://biz-touch.vercel.app"); // Replace with the URL you want to redirect to
-  // }, [router]);
+  useEffect(() => {
+    router.replace("https://biz-touch.vercel.app"); // Replace with the URL you want to redirect to
+  }, [router]);
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       {/* <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">

@@ -8,7 +8,8 @@ import { usePathname, useParams } from 'next/navigation';
 import ProfileComponent from '@/components/profileComponent';
 import { Theme, User } from '../../../themeConfig'
 import { Auth } from '@/lib/auth';
-import SEO from '@/components/seo'; 
+import SEO from '@/components/seo';
+import { GoogleTagManager, sendGTMEvent } from '@next/third-parties/google'
 
 export default function ProfilePage() {
     const pathName = usePathname().replace('@', '').replace('/', '');
@@ -17,6 +18,16 @@ export default function ProfilePage() {
     const [user, setUser] = useState<User | undefined>(undefined);
     const [cssTheme, setCssTheme] = useState<Theme | undefined>(undefined);
     const [daisyTheme, setDaisyTheme] = useState<string | undefined>(undefined);
+
+    const sendUserTapEvent = () => {
+        if (typeof window !== 'undefined' && window.gtag) {
+          window.gtag('event', 'user_tap', {
+            event_category: 'User Interaction',
+            event_label: pathName,
+            value: pathName,
+          });
+        }
+      };
 
     const fetchUserData = async () => {
 
@@ -43,12 +54,13 @@ export default function ProfilePage() {
         console.log("this is pathname ", pathName);
         if (pathName) {
             fetchUserData();
+            sendUserTapEvent();
         }
-    }, [router]);
+    }, [pathName]);
 
     return (
         <div data-theme={`${daisyTheme}`}>
-            <SEO title={user?.title} bio={user?.bio} imageUrl={user?.phone} url={`https://biz-touch.me/${user?.username}`} name={user?.name}  />
+            <SEO title={user?.title} bio={user?.bio} imageUrl={user?.phone} url={`https://biz-touch.me/${user?.username}`} name={user?.name} />
             <ProfileComponent theme={cssTheme} user={user} />
         </div>
 

@@ -42,7 +42,10 @@ export interface Social {
 export interface Media {
   media: string;
   type: string;
-  info: string;
+  name?: string;
+  info?: string;
+  photo?: string;
+  title?: string;
 };
 
 // types/user.ts (example)

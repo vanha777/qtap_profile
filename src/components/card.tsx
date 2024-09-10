@@ -80,12 +80,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                     <div className="relative">
                         <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
                             <div className="avatar">
-                                {/* <div className={`w-24 rounded-full ring ring-primary ring-offset-base-100 ${theme?.daisy === 'rose' ? 'ring-offset-2' : ''}`}>
-                                <a>
-                                    <img src={user?.photo} alt="avatar" />
-                                </a>
-                            </div> */}
-                                <div className="w-24 h-24 rounded-full relative">
+                                <div className="w-48 h-48 rounded-full relative">
                                     <div
                                         className={`absolute inset-0 rounded-full p-1 ${theme?.daisy === 'rose' ? 'ring-offset-2' : ''}`}
                                         style={{
@@ -93,7 +88,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                                         }}
                                     >
                                         <div className="w-full h-full rounded-full bg-base-100 p-[2px]">
-                                            <img src={user?.photo} alt="avatar" className="w-full h-full rounded-full object-cover" />
+                                            <img src={media?.photo} alt="avatar" className="w-full h-full rounded-full object-cover" />
                                         </div>
                                     </div>
                                 </div>
@@ -102,21 +97,22 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                     </div>
 
                     <div className="card-body pt-16">
-                        <div >
+                        <div className='pt-24'>
 
                             <h1 className="text-info-content text-4xl font-bold text-gray-900 mb-2 font-signature">
-                                {user?.name}
+                                {media?.name}
                             </h1>
 
 
                             <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-4 font-heading">
-                                {user?.title}
+                                {media?.title}
                             </h2>
 
 
                             <p className="text-info-content text-base text-gray-600 font-description">
-                                {user?.bio}
+                                {media?.info}
                             </p>
+
                         </div>
 
                     </div>

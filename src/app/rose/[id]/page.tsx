@@ -63,11 +63,11 @@ export default function ProfilePage() {
                 setUser(user1);
             } else {
                 const user2: User = {
-                    name: 'Sofia Nguyen',
-                    photo: 'https://eazypic.s3.ap-southeast-4.amazonaws.com/IMG_2078.png',
+                    name: 'RenuSpa IO',
+                    photo: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/image/Image%204.jpeg',
                     phone:"+61413906792",
                     email:"sofiang2407@gmail.com",
-                    title: 'Social Media Strategist',
+                    title: 'NuSkin',
                     bio: 'I love helping content creators to build authentic brands that truly stand out.',
                     social: [
                         {
@@ -88,10 +88,21 @@ export default function ProfilePage() {
                     ],
                     media: [
                         {
-                            media: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/video/IMG_8651.MOV?t=2024-08-22T10%3A18%3A39.819Z',
+                            photo: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/image/Image%209.jpeg',
+                            media: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/video/2.mp4?t=2024-09-10T15%3A56%3A03.415Z',
                             type: 'video',
-                            info: 'This is a test video'
-                        }
+                            name:'ageLOC® Boost',
+                            title: 'NuSkin',
+                            info:'Ageloc, Anti-Aging'
+                        },
+                        {
+                            photo: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/image/Image%204.jpeg',
+                            media: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/video/1.mp4?t=2024-09-10T15%3A55%3A21.116Z',
+                            type: 'video',
+                            name:'RenuSpa IO',
+                            title: 'NuSkin',
+                            info:'AgeLoc, Anti-Aging, Massage, Muscle-Recovery'
+                        },
                     ]
                 };
                 setUser(user2);

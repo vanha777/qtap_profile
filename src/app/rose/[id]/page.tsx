@@ -101,7 +101,7 @@ export default function ProfilePage() {
                             type: 'video',
                             name:'RenuSpa IO',
                             title: 'NuSkin',
-                            info:'AgeLoc, Anti-Aging, Massage, Muscle-Recovery'
+                            info:'Massage, Muscle-Recovery'
                         },
                     ]
                 };

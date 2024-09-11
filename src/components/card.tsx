@@ -96,7 +96,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                         </div>
                     </div>
 
-                    <div className="card-body pt-16">
+                    <div className="card-body pt-16 relative">
                         <div className='pt-24'>
 
                             <h1 className="text-info-content text-4xl font-bold text-gray-900 mb-2 font-signature">
@@ -104,14 +104,24 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                             </h1>
 
 
-                            <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-4 font-heading">
+                            <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-2 font-heading">
                                 {media?.title}
                             </h2>
 
 
-                            <p className="text-info-content text-base text-gray-600 font-description">
+                            <p className="mb-4 text-info-content text-base text-gray-600 font-description">
                                 {media?.info}
                             </p>
+
+                            {/* <button className="absolute bottom-0 right-0 px-4 py-2 bg-blue-600 text-white rounded-lg outline-none ring-2 ring-blue-500 ring-offset-2">
+                                Book Demo
+                            </button> */}
+                            <button
+                                className="absolute bottom-0 right-0 px-4 py-2 text-white rounded-lg outline-none ring-2 ring-pink-500 ring-offset-2"
+                                style={{ backgroundColor: theme?.menuButtonBackground }}
+                            >
+                                Book Demo
+                            </button>
 
                         </div>
 

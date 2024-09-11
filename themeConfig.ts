@@ -46,6 +46,7 @@ export interface Media {
   info?: string;
   photo?: string;
   title?: string;
+  link?: string;
 };
 
 // types/user.ts (example)

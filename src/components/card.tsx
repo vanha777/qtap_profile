@@ -2,8 +2,7 @@
 
 
 import Link from 'next/link';
-import React from 'react';
-import { useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Theme, Media, User } from '../../themeConfig';
 
 interface MediaProps {
@@ -14,10 +13,26 @@ interface MediaProps {
 }
 
 const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
-    // Inline style to set the dynamic ring color
-    const style: React.CSSProperties = {
-        '--ring-color': '#000' || '#000', // Set custom property, fallback to #000
-    } as React.CSSProperties;
+    const videoRef = useRef<HTMLVideoElement | null>(null);
+    const [isPlaying, setIsPlaying] = useState<boolean>(false);
+    const handlePlay = () => {
+        const videoElement = videoRef.current;
+        if (isPlaying) {
+            if (videoElement) {
+                videoElement.play().catch(error => {
+                    console.error('Playback error:', error);
+                });
+            }
+            setIsPlaying(false);
+        } else {
+            if (videoElement) {
+                videoElement.pause();
+            }
+            setIsPlaying(true);
+        }
+
+
+    };
     return (
         <>
             <div style={{
@@ -60,10 +75,12 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                                 objectFit: 'cover' // Ensures the video covers the container without stretching
                             }}
                             src={media.media} // Replace with your video source URL
-                            autoPlay
-                            muted // Optional: Mutes the video
+                            // autoPlay
+                            // muted // Optional: Mutes the video
+                            ref={videoRef}
                             playsInline // Optional: For inline playback on mobile devices
                             loop // Optional: To loop the video
+                            onClick={handlePlay}
                         />
                     ) : (
                         <img
@@ -116,12 +133,13 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                             {/* <button className="absolute bottom-0 right-0 px-4 py-2 bg-blue-600 text-white rounded-lg outline-none ring-2 ring-blue-500 ring-offset-2">
                                 Book Demo
                             </button> */}
-                            <button
+                            <a
+                                href={media?.link} // Replace with your actual URL
                                 className="absolute bottom-0 right-0 px-4 py-2 text-white rounded-lg outline-none ring-2 ring-pink-500 ring-offset-2"
                                 style={{ backgroundColor: theme?.menuButtonBackground }}
                             >
                                 Book Demo
-                            </button>
+                            </a>
 
                         </div>
 

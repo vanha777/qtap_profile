@@ -88,20 +88,22 @@ export default function ProfilePage() {
                     ],
                     media: [
                         {
-                            photo: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/image/Image%209.jpeg',
-                            media: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/video/2.mp4?t=2024-09-10T15%3A56%3A03.415Z',
+                            photo: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/image/att.wzzJIvDLz9sp4q845BXNX-WtM0eZbmeyaIR41nJjYT4.jpg',
+                            media: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/video/16.mp4?t=2024-09-11T09%3A41%3A11.193Z',
                             type: 'video',
-                            name:'ageLOC® Boost',
+                            name:'LumiSpa',
                             title: 'NuSkin',
-                            info:'Ageloc, Anti-Aging'
+                            info:'Ageloc, Anti-Aging',
+                            link:'https://www.nuskin.com/us/en/product/ageloc-rose-gold-lumispa-io'
                         },
                         {
                             photo: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/image/Image%204.jpeg',
-                            media: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/video/1.mp4?t=2024-09-10T15%3A55%3A21.116Z',
+                            media: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/video/renu2.mp4?t=2024-09-11T09%3A08%3A58.205Z',
                             type: 'video',
                             name:'RenuSpa IO',
                             title: 'NuSkin',
-                            info:'Massage, Muscle-Recovery'
+                            info:'Massage, Muscle-Recovery',
+                            link:'https://www.nuskin.com/us/en/product/nuskin-renuspa-io?categoryId=beauty_devices'
                         },
                     ]
                 };

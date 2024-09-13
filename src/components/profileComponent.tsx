@@ -64,7 +64,7 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
             )}
             {/* {activeButton === 1 && */}
             {user !== undefined && (
-                <div className="h-screen w-screen flex items-center justify-center p-5 pb-20 overflow-hidden">
+                <div className="h-screen w-screen flex items-center justify-center p-5 pb-32 overflow-hidden">
                     <Slider theme={theme} user={user} />
                 </div>
             )

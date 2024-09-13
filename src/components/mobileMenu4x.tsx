@@ -13,7 +13,7 @@ interface MobileMenuProps {
     setActiveButton: (buttonIndex: number) => void;
 }
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setActiveButton }) => {
+const MobileMenu4x: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setActiveButton }) => {
     const transition = {
         duration: 0.15
     };
@@ -22,19 +22,25 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
         moved: { x: -15, y: 0, rotate: 45 },
     };
 
+// facebook
     const variants = {
         initial: { x: 0, y: 9 },
-        moved: { x: 0, y: -90 }
+        moved: { x: -30, y: -80 }
     };
-    // const variants_color = "#D53F8C";
+//nuskin
     const variants2 = {
         initial: { x: 0, y: 3 },
-        moved: { x: -80, y: -50 }
+        moved: { x: -80, y: -30 }
     };
-    // const variants2_color = "#9B76F0";
+    //instargram
     const variants3 = {
         initial: { x: 0, y: 6 },
-        moved: { x: 80, y: -50 }
+        moved: { x: 40, y: -80 }
+    };
+    //tiktok
+    const variants4 = {
+        initial: { x: 0, y: 0 },
+        moved: { x: 83, y: -30 }
     };
     // const variants3_color = "#4A7BF7";
     // const [activeButton, setActiveButton] = useState(0);
@@ -64,11 +70,11 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ theme, user, activeButton, setA
         if (!user) return;
         let avatarBase64 = '';
         if (user?.photo) {
-          try {
-            avatarBase64 = await getBase64FromUrl(user?.photo);
-          } catch (error) {
-            console.error('Error fetching avatar:', error);
-          }
+            try {
+                avatarBase64 = await getBase64FromUrl(user?.photo);
+            } catch (error) {
+                console.error('Error fetching avatar:', error);
+            }
         }
 
         const vCard = `BEGIN:VCARD
@@ -204,6 +210,34 @@ END:VCARD`;
                 <motion.div
                     initial="initial"
                     animate={isMoved ? "moved" : "initial"}
+                    variants={variants4}
+                    transition={transition}
+                    style={{
+                        width: 100,
+                        height: 100,
+                        // backgroundColor: 'coral',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        // color: 'white',
+                        fontSize: '18px',
+                        fontWeight: 'bold',
+                        borderRadius: '8px',
+                        cursor: 'pointer',
+                        position: 'absolute', // Optional: ensures the element can move freely
+                    }}
+                >
+                    <a
+                        href={user?.social[3]?.link} // Replace with the URL you want to redirect to
+                        target="_blank" // Opens the link in a new tab
+                        rel="noopener noreferrer"
+                        className='rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
+                        <img src={user?.social[3]?.icons} alt="SVG Image" />
+                    </a>
+                </motion.div>
+                <motion.div
+                    initial="initial"
+                    animate={isMoved ? "moved" : "initial"}
                     variants={variants0}
                     transition={transition}
                     onClick={() => setIsMoved(!isMoved)}
@@ -263,18 +297,18 @@ END:VCARD`;
     )
 }
 
-export default MobileMenu;
+export default MobileMenu4x;
 
 async function getBase64FromUrl(url: string): Promise<string> {
     const response = await fetch(url);
     const blob = await response.blob();
     return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64 = reader.result as string;
-        resolve(base64.split(',')[1]); // Remove the data URL prefix
-      };
-      reader.onerror = reject;
-      reader.readAsDataURL(blob);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const base64 = reader.result as string;
+            resolve(base64.split(',')[1]); // Remove the data URL prefix
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
     });
-  }
+}

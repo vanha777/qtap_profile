@@ -3,7 +3,8 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import MobileMenu from '@/components/mobileMenu';
+import MobileMenu3x from '@/components/mobileMenu3x';
+import MobileMenu4x from './mobileMenu4x';
 import Slider from '@/components/slider';
 import themeConfig from '../../themeConfig';
 import { usePathname, useParams } from 'next/navigation';
@@ -27,27 +28,40 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
     // };
 
     useEffect(() => {
-        console.log("this is theme inside compoennt,",theme);
-    }, [theme,user]);
+        console.log("this is theme inside compoennt,", theme);
+    }, [theme, user]);
 
     return (
-        <div className={`flex items-center justify-center overflow-hidden fixed`} 
-        style={{
+        <div className={`flex items-center justify-center overflow-hidden fixed`}
+            style={{
 
-            background: `${theme?.background}`,
+                background: `${theme?.background}`,
 
-            backgroundImage: `${theme?.daisy == 'rose' ? `url(${theme?.background})` : ''}`,
-            backgroundSize: 'cover', // Adjust how the background image is sized
-            backgroundPosition: 'center', // Center the background image
-            // backdropFilter: 'blur(100px)', // Apply the blur effect
-       
-        }}
+                backgroundImage: `${theme?.daisy == 'rose' ? `url(${theme?.background})` : ''}`,
+                backgroundSize: 'cover', // Adjust how the background image is sized
+                backgroundPosition: 'center', // Center the background image
+                // backdropFilter: 'blur(100px)', // Apply the blur effect
+
+            }}
         >
             {/* <div className="full-screen-gradient" > */}
             {user && (
-                <MobileMenu theme={theme} user={user} activeButton={activeButton} setActiveButton={setActiveButton} />
-            )
-            }
+                user.social.length > 3 ? (
+                    <MobileMenu4x
+                        theme={theme}
+                        user={user}
+                        activeButton={activeButton}
+                        setActiveButton={setActiveButton}
+                    />
+                ) : (
+                    <MobileMenu3x
+                        theme={theme}
+                        user={user}
+                        activeButton={activeButton}
+                        setActiveButton={setActiveButton}
+                    />
+                )
+            )}
             {/* {activeButton === 1 && */}
             {user !== undefined && (
                 <div className="h-screen w-screen flex items-center justify-center p-5 pb-20 overflow-hidden">

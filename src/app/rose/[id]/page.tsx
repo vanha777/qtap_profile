@@ -3,7 +3,6 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import MobileMenu from '@/components/mobileMenu';
 import Slider from '@/components/slider';
 import themeConfig from '../../../../themeConfig';
 import { usePathname, useParams } from 'next/navigation';
@@ -84,6 +83,11 @@ export default function ProfilePage() {
                             link: 'https://www.instagram.com/sofia.socialbae',
                             platforms: 'Instargram',
                             icons: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/theme/instargram.svg'
+                        },
+                        {
+                            link: 'https://www.instagram.com/sofia.socialbae',
+                            platforms: 'Instargram',
+                            icons: 'https://tzqzzuafkobkhygtccse.supabase.co/storage/v1/object/public/biz_touch/theme/tiktok.svg?t=2024-09-13T14%3A13%3A57.513Z'
                         }
                     ],
                     media: [

@@ -3,7 +3,6 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import MobileMenu from '@/components/mobileMenu';
 import Slider from '@/components/slider';
 import themeConfig from '../../../../themeConfig';
 import { usePathname, useParams } from 'next/navigation';

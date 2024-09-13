@@ -22,12 +22,12 @@ const MobileMenu4x: React.FC<MobileMenuProps> = ({ theme, user, activeButton, se
         moved: { x: -15, y: 0, rotate: 45 },
     };
 
-// facebook
+    // facebook
     const variants = {
         initial: { x: 0, y: 9 },
         moved: { x: -30, y: -80 }
     };
-//nuskin
+    //nuskin
     const variants2 = {
         initial: { x: 0, y: 3 },
         moved: { x: -80, y: -30 }
@@ -143,7 +143,11 @@ END:VCARD`;
                         target="_blank" // Opens the link in a new tab
                         rel="noopener noreferrer"
                         className='rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
-                        <img src={user?.social[1]?.icons} alt="SVG Image" />
+                        <img
+                            style={{
+                                borderRadius: '50%'
+                            }}
+                            src={user?.social[1]?.icons} alt="SVG Image" />
                     </a>
                 </motion.div>
                 <motion.div
@@ -170,8 +174,12 @@ END:VCARD`;
                         href={user?.social[2]?.link} // Replace with the URL you want to redirect to
                         target="_blank" // Opens the link in a new tab
                         rel="noopener noreferrer"
-                        className='rounded-full flex items-center justify-center' style={{ height: '4.25rem', width: '4.25rem', marginTop: '-3rem' }}>
-                        <img src={user?.social[2]?.icons} alt="SVG Image" />
+                        className='rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
+                        <img
+                            style={{
+                                borderRadius: '50%'
+                            }}
+                            src={user?.social[2]?.icons} alt="SVG Image" />
                     </a>
                 </motion.div>
                 <motion.div
@@ -200,10 +208,7 @@ END:VCARD`;
                         rel="noopener noreferrer"
                         className='rounded-full flex items-center justify-center bg-transparent' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
                         <img style={{
-                            width: '90%',
-                            height: '90%',
-
-                            borderRadius: '50%' // Make sure the image is rounded like the parent div
+                            borderRadius: '50%'
                         }} src={user?.social[0]?.icons} />
                     </a>
                 </motion.div>
@@ -232,7 +237,10 @@ END:VCARD`;
                         target="_blank" // Opens the link in a new tab
                         rel="noopener noreferrer"
                         className='rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
-                        <img src={user?.social[3]?.icons} alt="SVG Image" />
+                        <img style={{
+                            borderRadius: '50%'
+                        }}
+                            src={user?.social[3]?.icons} alt="SVG Image" />
                     </a>
                 </motion.div>
                 <motion.div

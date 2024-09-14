@@ -61,7 +61,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                             }}
                             src={media.media} // Replace with your video source URL
                             autoPlay
-                            muted // Optional: Mutes the video
+                            // muted // Optional: Mutes the video
                             playsInline // Optional: For inline playback on mobile devices
                             loop // Optional: To loop the video
                         />

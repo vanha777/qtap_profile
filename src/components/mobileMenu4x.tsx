@@ -85,7 +85,7 @@ TEL:${user.phone}
 EMAIL:${user.email}
 URL:${`https://biz-touch.me/@${user?.username}`}
 PHOTO;TYPE=JPEG;ENCODING=BASE64:${avatarBase64}
-NOTE:"🚀 Connected via Biz-touch! Let's make business fun and profitable together. Coffee chat soon? ☕️"
+NOTE:"My mission is to be a global force for good by empowering people to improve lives with innovative products, rewarding opportunities and an enriching culture."
 END:VCARD`;
 
         const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });

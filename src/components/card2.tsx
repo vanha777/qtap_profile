@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { motion, useAnimation, PanInfo } from 'framer-motion';
 import { Theme, Media, User } from '../../themeConfig';

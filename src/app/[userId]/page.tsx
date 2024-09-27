@@ -1,98 +1,66 @@
-// src/app/profile/[id]/page.tsx
-"use client"
-
-import { useRouter } from 'next/navigation';
-import { Suspense, useEffect, useState } from 'react';
-import themeConfig from '../../../themeConfig';
-import { usePathname, useParams } from 'next/navigation';
-import ProfileComponent from '@/components/profileComponent';
-import { Theme, User } from '../../../themeConfig'
 import { Auth } from '@/lib/auth';
-import SEO from '@/components/seo';
-import { GoogleTagManager, sendGTMEvent } from '@next/third-parties/google'
+import { Theme, User } from '../../../themeConfig';
+import themeConfig from '../../../themeConfig';
+import ProfileComponent from '@/components/profileComponent';
+import { redirect } from 'next/navigation';
+import { Suspense } from 'react';
 import LoadingAnimation from '@/components/loadingAnimation';
-import { motion } from 'framer-motion';
+import { Metadata } from 'next';
 
-const MinimumLoadingTime: React.FC<{ children: React.ReactNode, minLoadingTime: number }> = ({ children, minLoadingTime }) => {
-    const [isLoading, setIsLoading] = useState(true);
+export async function generateMetadata({ params }: { params: { userId: string } }): Promise<Metadata> {
+    const { userId } = params;
+    const pathName = userId.replace('@', '');
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, minLoadingTime);
+    let { data, error } = await Auth
+        .from('users')
+        .select('*')
+        .eq('username', pathName)
+        .single();
 
-        return () => clearTimeout(timer);
-    }, [minLoadingTime]);
 
-    if (isLoading) {
-        return <LoadingAnimation />;
+    data.name = `${data.first_name} ${data.last_name}`;
+
+    if (error) {
+        return {
+            title: 'Not Found',
+            description: 'The page you are looking for does not exist.'
+        };
     }
 
-    return <>{children}</>;
-};
-
-export default function ProfilePage() {
-    const pathName = usePathname().replace('@', '').replace('/', '');
-    // const userId = useParams().userId;
-    const router = useRouter();
-    const [user, setUser] = useState<User | undefined>(undefined);
-    const [cssTheme, setCssTheme] = useState<Theme | undefined>(undefined);
-    const [daisyTheme, setDaisyTheme] = useState<string | undefined>(undefined);
-
-    const sendUserTapEvent = () => {
-        if (typeof window !== 'undefined' && window.gtag) {
-            window.gtag('event', 'user_tap', {
-                event_category: 'User Interaction',
-                event_label: pathName,
-                value: pathName,
-            });
-        }
+    return {
+        title: `Biz-Profile: ${data?.name}`,
+        description: data?.bio || 'User profile',
+        openGraph: {
+            title: data?.title || 'Profile',
+            description: data?.bio || 'User profile',
+            images: [{ url: data?.photo || '' }],
+            url: `https://biz-touch.me/${data?.username}`,
+        },
     };
+}
 
+export default async function ProfilePage({ params }: { params: { userId: string } }) {
+    const { userId } = params;
+    const pathName = userId.replace('@', '');
 
+    let { data, error } = await Auth
+        .from('users')
+        .select('*')
+        .eq('username', pathName)
+        .single();
 
-    const fetchUserData = async () => {
-
-        const { data, error } = await Auth
-            .from('users')
-            .select('*')
-            .eq('username', pathName)
-            .single()
-
-        if (error) {
-            router.replace("https://biz-touch.vercel.app");
-        }
-
-        data.name = `${data.first_name} ${data.last_name}`;
-
-        const cssTheme = themeConfig[data.theme] || themeConfig[''];
-        setCssTheme(cssTheme);
-        setDaisyTheme(cssTheme.daisy);
-        setUser(data)
-        console.log('Fetched user data:', data)
+    if (error) {
+        redirect('https://biz-touch.vercel.app');
     }
 
-    useEffect(() => {
-        console.log("this is pathname ", pathName);
-        if (pathName) {
-            fetchUserData();
-            sendUserTapEvent();
-        }
-    }, [pathName]);
+    data.name = `${data.first_name} ${data.last_name}`;
+    const cssTheme = themeConfig[data.theme] || themeConfig[''];
+    const daisyTheme = cssTheme.daisy;
 
     return (
-        <div data-theme={`${daisyTheme}`}>
+        <div data-theme={daisyTheme}>
             <Suspense fallback={<LoadingAnimation />}>
-                <MinimumLoadingTime minLoadingTime={3000}>
-                    <SEO title={user?.title} bio={user?.bio} imageUrl={user?.phone} url={`https://biz-touch.me/${user?.username}`} name={user?.name} />
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                    >
-                        <ProfileComponent theme={cssTheme} user={user} />
-                    </motion.div>
-                </MinimumLoadingTime>
+                <ProfileComponent theme={cssTheme} user={data} />
             </Suspense>
         </div>
     );

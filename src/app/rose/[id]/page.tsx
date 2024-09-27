@@ -3,10 +3,9 @@
 
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import Slider from '@/components/slider';
 import themeConfig from '../../../../themeConfig';
 import { usePathname, useParams } from 'next/navigation';
-import ProfileComponent from '@/components/profileComponent';
+import ProfileComponent from '@/components//test/profileComponent';
 import { Theme, User } from '../../../../themeConfig'
 
 export default function ProfilePage() {

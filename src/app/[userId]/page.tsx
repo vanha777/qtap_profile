@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: { params: { userId: string } 
         title: `Biz-Profile: ${data?.name}`,
         description: data?.bio || 'User profile',
         openGraph: {
-            title: data?.title || 'Profile',
+            title: `Biz-Profile: ${data?.name}`,
             description: data?.bio || 'User profile',
             images: [{ url: data?.photo || '' }],
             url: `https://biz-touch.me/${data?.username}`,

@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const LoadingAnimation: React.FC = () => (
-    <div className="flex justify-center items-center h-screen bg-black">
+    <div className="flex justify-center items-center h-screen bg-white">
         <motion.svg
             xmlns="http://www.w3.org/2000/svg"
             width="200"

@@ -34,14 +34,11 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
     return (
         <div className={`flex items-center justify-center overflow-hidden fixed`}
             style={{
-
-                background: `${theme?.background}`,
-
-                backgroundImage: `${theme?.daisy == 'rose' ? `url(${theme?.background})` : ''}`,
-                backgroundSize: 'cover', // Adjust how the background image is sized
-                backgroundPosition: 'center', // Center the background image
-                // backdropFilter: 'blur(100px)', // Apply the blur effect
-
+                ...(theme?.daisy === 'silver'
+                    ? { background: `${theme?.background}` }
+                    : { backgroundImage: `url(${theme?.background})` }),
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
             }}
         >
             {/* <div className="full-screen-gradient" > */}

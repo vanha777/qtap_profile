@@ -106,7 +106,7 @@ const themeConfig: ThemeConfig = {
   },
   "gold": {
     avatarBorder: 'linear-gradient(to right, #FFD700, #99621E)',
-    background: 'url(/black_water.png)',
+    background: '/black_water.png',
     // background: 'linear-gradient(to right, #002F6C, #000000)',
     primary: '#F9E73E',
     secondary: '',

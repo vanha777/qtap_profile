@@ -11,6 +11,7 @@ import { Auth } from '@/lib/auth';
 import SEO from '@/components/seo';
 import { GoogleTagManager, sendGTMEvent } from '@next/third-parties/google'
 import LoadingAnimation from '@/components/loadingAnimation';
+import { motion } from 'framer-motion';
 
 const MinimumLoadingTime: React.FC<{ children: React.ReactNode, minLoadingTime: number }> = ({ children, minLoadingTime }) => {
     const [isLoading, setIsLoading] = useState(true);
@@ -84,7 +85,13 @@ export default function ProfilePage() {
             <Suspense fallback={<LoadingAnimation />}>
                 <MinimumLoadingTime minLoadingTime={3000}>
                     <SEO title={user?.title} bio={user?.bio} imageUrl={user?.phone} url={`https://biz-touch.me/${user?.username}`} name={user?.name} />
-                    <ProfileComponent theme={cssTheme} user={user} />
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                        <ProfileComponent theme={cssTheme} user={user} />
+                    </motion.div>
                 </MinimumLoadingTime>
             </Suspense>
         </div>

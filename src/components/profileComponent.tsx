@@ -43,7 +43,6 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
     }, [theme, user]);
 
     return (
-        <MinimumLoadingTime minLoadingTime={3000}>
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -83,7 +82,6 @@ const ProfileComponent: React.FC<ProfileComponentsProps> = ({ theme, user }) => 
                     }
                 </div>
             </motion.div>
-        </MinimumLoadingTime>
     );
 }
 export default ProfileComponent;

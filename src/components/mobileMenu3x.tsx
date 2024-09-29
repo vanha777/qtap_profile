@@ -77,7 +77,7 @@ FN:${user.name}
 TITLE:${user.title}
 TEL:${user.phone}
 EMAIL:${user.email}
-URL:${`https://biz-touch.me/@${user?.username}`}
+URL:${`https://biz-touch.me/${user?.username}`}
 PHOTO;TYPE=JPEG;ENCODING=BASE64:${avatarBase64}
 NOTE:My mission is to be a global force for good by empowering people to improve lives with innovative products, rewarding opportunities and an enriching culture.
 END:VCARD`;

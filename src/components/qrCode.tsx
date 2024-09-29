@@ -61,7 +61,7 @@ const SvgQRCode: React.FC<ThemeProps> = ({ theme, user }) => {
             >
                 <QRCodeSVG
                     // value={`https://biz-profile.vercel.app/${theme?.daisy}/2`}
-                    value={`${user?.qr_code ? `${user.qr_code}` : `https://biz-touch.me/@${user?.username}`}`}
+                    value={`${user?.qr_code ? `${user.qr_code}` : `https://biz-touch.me/${user?.username}`}`}
                     size={200}
                     bgColor="transparent"
                     fgColor={`url(#gradient${theme?.inactiveColor})`}

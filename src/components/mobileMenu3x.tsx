@@ -64,11 +64,11 @@ const MobileMenu3x: React.FC<MobileMenuProps> = ({ theme, user, activeButton, se
         if (!user) return;
         let avatarBase64 = '';
         if (user?.photo) {
-          try {
-            avatarBase64 = await getBase64FromUrl(user?.photo);
-          } catch (error) {
-            console.error('Error fetching avatar:', error);
-          }
+            try {
+                avatarBase64 = await getBase64FromUrl(user?.photo);
+            } catch (error) {
+                console.error('Error fetching avatar:', error);
+            }
         }
 
         const vCard = `BEGIN:VCARD
@@ -137,7 +137,10 @@ END:VCARD`;
                         target="_blank" // Opens the link in a new tab
                         rel="noopener noreferrer"
                         className='rounded-full flex items-center justify-center' style={{ height: '4rem', width: '4rem', marginTop: '-3rem' }}>
-                        <img src={user?.social[1]?.icons} alt="SVG Image" />
+                        <img
+                            style={{
+                                borderRadius: '50%'
+                            }} src={user?.social[1]?.icons} alt="SVG Image" />
                     </a>
                 </motion.div>
                 <motion.div
@@ -165,7 +168,9 @@ END:VCARD`;
                         target="_blank" // Opens the link in a new tab
                         rel="noopener noreferrer"
                         className='rounded-full flex items-center justify-center' style={{ height: '4.25rem', width: '4.25rem', marginTop: '-3rem' }}>
-                        <img src={user?.social[2]?.icons} alt="SVG Image" />
+                        <img style={{
+                            borderRadius: '50%'
+                        }} src={user?.social[2]?.icons} alt="SVG Image" />
                     </a>
                 </motion.div>
                 <motion.div
@@ -269,12 +274,12 @@ async function getBase64FromUrl(url: string): Promise<string> {
     const response = await fetch(url);
     const blob = await response.blob();
     return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64 = reader.result as string;
-        resolve(base64.split(',')[1]); // Remove the data URL prefix
-      };
-      reader.onerror = reject;
-      reader.readAsDataURL(blob);
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            const base64 = reader.result as string;
+            resolve(base64.split(',')[1]); // Remove the data URL prefix
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
     });
-  }
+}

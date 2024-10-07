@@ -90,12 +90,7 @@ END:VCARD`;
 
         const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
         const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `${user.name}.vcf`);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        window.open(url, '_blank');
     };
 
     return (

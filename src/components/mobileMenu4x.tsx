@@ -49,8 +49,13 @@ const MobileMenu4x: React.FC<MobileMenuProps> = ({ theme, user, activeButton, se
     const handleButtonClick = (buttonIndex: number) => {
         if (buttonIndex == 3) {
             // setActiveButton(buttonIndex);
-            const mailtoLink = `mailto:${user?.email}?subject=Subject&body=Body%20text`;
-            window.location.href = mailtoLink;
+            if (user?.type === "biz") {
+                const googleMapsLink = "https://maps.app.goo.gl/TdPumwyQvoqAoWHB7";
+                window.open(googleMapsLink, "_blank");
+            } else {
+                const mailtoLink = `mailto:${user?.email}?subject=Subject&body=Body%20text`;
+                window.location.href = mailtoLink;
+            }
             // setActiveButton(1);
         } else if (buttonIndex == 4) {
             createAndDownloadVCard();
@@ -107,11 +112,30 @@ END:VCARD`;
                 className={`text-primary ${activeButton === 4 ? '' : ''}`}
                 onClick={() => handleButtonClick(4)}
             >
-                <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="24" height="24" fill="none" />
-                    <path fillRule="evenodd" clipRule="evenodd" d="M2.14089 4.4021C2.34025 2.92963 3.63956 2 4.99004 2H7.55848C8.84977 2 9.99619 2.82629 10.4045 4.05132L11.454 7.19963C11.905 8.55283 11.1086 10.0036 9.72482 10.3496C9.38646 10.4342 9.26975 10.8555 9.51637 11.1022L12.8978 14.4836C13.1445 14.7303 13.5658 14.6135 13.6504 14.2752C13.9964 12.8914 15.4472 12.095 16.8004 12.546L19.9487 13.5955C21.1737 14.0038 22 15.1502 22 16.4415V19.01C22 20.3604 21.0704 21.6598 19.5979 21.8591C18.9114 21.9521 18.211 22 17.5 22C8.93959 22 2 15.0604 2 6.5C2 5.78898 2.04794 5.08863 2.14089 4.4021Z" fill={`${activeButton === 4 ? `${theme?.inactiveColor}` : `${theme?.menuButtonBackground}`}`} />
-                    <path d="M20 7C20 7.55229 20.4477 8 21 8C21.5523 8 22 7.55229 22 7L22 3.5C22 2.67157 21.3284 2 20.5 2H17C16.4477 2 16 2.44772 16 3C16 3.55228 16.4477 4 17 4L18.5858 4L14.2929 8.29289C13.9024 8.68342 13.9024 9.31658 14.2929 9.70711C14.6834 10.0976 15.3166 10.0976 15.7071 9.70711L20 5.41421L20 7Z" fill={`${activeButton === 4 ? `${theme?.inactiveColor}` : `${theme?.menuButtonBackground}`}`} />
-                </svg>
+                {user?.type === 'biz' ? (
+                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="24" height="24" fill="none" />
+                        <path fillRule="evenodd" clipRule="evenodd" d="M2.14089 4.4021C2.34025 2.92963 3.63956 2 4.99004 2H7.55848C8.84977 2 9.99619 2.82629 10.4045 4.05132L11.454 7.19963C11.905 8.55283 11.1086 10.0036 9.72482 10.3496C9.38646 10.4342 9.26975 10.8555 9.51637 11.1022L12.8978 14.4836C13.1445 14.7303 13.5658 14.6135 13.6504 14.2752C13.9964 12.8914 15.4472 12.095 16.8004 12.546L19.9487 13.5955C21.1737 14.0038 22 15.1502 22 16.4415V19.01C22 20.3604 21.0704 21.6598 19.5979 21.8591C18.9114 21.9521 18.211 22 17.5 22C8.93959 22 2 15.0604 2 6.5C2 5.78898 2.04794 5.08863 2.14089 4.4021Z" fill={`${activeButton === 4 ? `${theme?.inactiveColor}` : `${theme?.menuButtonBackground}`}`} />
+                        <path d="M20 7C20 7.55229 20.4477 8 21 8C21.5523 8 22 7.55229 22 7L22 3.5C22 2.67157 21.3284 2 20.5 2H17C16.4477 2 16 2.44772 16 3C16 3.55228 16.4477 4 17 4L18.5858 4L14.2929 8.29289C13.9024 8.68342 13.9024 9.31658 14.2929 9.70711C14.6834 10.0976 15.3166 10.0976 15.7071 9.70711L20 5.41421L20 7Z" fill={`${activeButton === 4 ? `${theme?.inactiveColor}` : `${theme?.menuButtonBackground}`}`} />
+                    </svg>
+                ) : (
+                    <svg fill={`${activeButton === 4 ? `${theme?.inactiveColor}` : `${theme?.menuButtonBackground}`}`} version="1.1" id="Capa_1"
+                        width="35" height="35" viewBox="0 0 166.964 166.964"
+                    >
+                        <g>
+                            <g>
+                                <polygon points="75.1,159.95 75.115,159.938 75.088,159.938" />
+                                <path d="M71.791,96.415h-0.179l-6.848-7.849c3.31,1.188,6.759,1.906,10.336,1.906c3.581,0,7.024-0.706,10.328-1.9l-6.848,7.843
+                 h-0.167l16.779,40.578l15.332-20.361l17.001,12.787l10.669-16.027c-10.078-12.787-25.952-24.198-44.658-28.938
+                 c13.518-9.097,22.834-27.033,22.834-43.181C116.369,18.478,97.883,0,75.1,0S33.837,18.478,33.837,41.272
+                 c0,16.148,9.307,34.084,22.828,43.181c-32.324,8.199-56.282,36.258-56.282,57.059c0,12.288,37.351,18.426,74.705,18.413
+                 l-20.919-20.91L71.791,96.415z"/>
+                                <path d="M75.115,159.938c10.924-0.013,21.848-0.523,31.828-1.583l-17.269-12.982L75.115,159.938z" />
+                                <polygon points="152.605,108.63 129.826,142.845 112.381,129.724 102.279,143.138 133.967,166.964 166.58,117.94" />
+                            </g>
+                        </g>
+                    </svg>
+                )}
             </button>
             <div
                 className={` text-primary ${activeButton === 2 ? '' : ''}`}
@@ -293,13 +317,31 @@ END:VCARD`;
                 className={`text-primary ${activeButton === 3 ? '' : ''}`}
                 onClick={() => handleButtonClick(3)}
             >
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g id="style=fill">
-                        <g id="email">
-                            <path id="Subtract" fillRule="evenodd" clipRule="evenodd" d="M7 2.75C5.38503 2.75 3.92465 3.15363 2.86466 4.1379C1.79462 5.13152 1.25 6.60705 1.25 8.5V15.5C1.25 17.393 1.79462 18.8685 2.86466 19.8621C3.92465 20.8464 5.38503 21.25 7 21.25H17C18.615 21.25 20.0754 20.8464 21.1353 19.8621C22.2054 18.8685 22.75 17.393 22.75 15.5V8.5C22.75 6.60705 22.2054 5.13152 21.1353 4.1379C20.0754 3.15363 18.615 2.75 17 2.75H7ZM19.2285 8.3623C19.5562 8.10904 19.6166 7.63802 19.3633 7.31026C19.1101 6.98249 18.6391 6.9221 18.3113 7.17537L12.7642 11.4616C12.3141 11.8095 11.6858 11.8095 11.2356 11.4616L5.6886 7.17537C5.36083 6.9221 4.88982 6.98249 4.63655 7.31026C4.38328 7.63802 4.44367 8.10904 4.77144 8.3623L10.3185 12.6486C11.3089 13.4138 12.691 13.4138 13.6814 12.6486L19.2285 8.3623Z" fill={`${activeButton === 3 ? `${theme?.inactiveColor}` : `${theme?.menuButtonBackground}`}`} />
+                {user?.type === 'biz' ? (
+                    <svg width="33" height="33" viewBox="-4 0 32 32" version="1.1" >
+
+                        <title>location</title>
+                        <desc>Created with Sketch Beta.</desc>
+                        <defs>
+
+                        </defs>
+                        <g id="Page-1" stroke="none" stroke-width="1" fill={`${activeButton === 3 ? `${theme?.inactiveColor}` : `${theme?.menuButtonBackground}`}`} fill-rule="evenodd" >
+                            <g id="Icon-Set-Filled" transform="translate(-106.000000, -413.000000)" fill={`${activeButton === 3 ? `${theme?.inactiveColor}` : `${theme?.menuButtonBackground}`}`}>
+                                <path d="M118,422 C116.343,422 115,423.343 115,425 C115,426.657 116.343,428 118,428 C119.657,428 121,426.657 121,425 C121,423.343 119.657,422 118,422 L118,422 Z M118,430 C115.239,430 113,427.762 113,425 C113,422.238 115.239,420 118,420 C120.761,420 123,422.238 123,425 C123,427.762 120.761,430 118,430 L118,430 Z M118,413 C111.373,413 106,418.373 106,425 C106,430.018 116.005,445.011 118,445 C119.964,445.011 130,429.95 130,425 C130,418.373 124.627,413 118,413 L118,413 Z" id="location" >
+
+                                </path>
+                            </g>
                         </g>
-                    </g>
-                </svg>
+                    </svg>
+                ) : (
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="style=fill">
+                            <g id="email">
+                                <path id="Subtract" fillRule="evenodd" clipRule="evenodd" d="M7 2.75C5.38503 2.75 3.92465 3.15363 2.86466 4.1379C1.79462 5.13152 1.25 6.60705 1.25 8.5V15.5C1.25 17.393 1.79462 18.8685 2.86466 19.8621C3.92465 20.8464 5.38503 21.25 7 21.25H17C18.615 21.25 20.0754 20.8464 21.1353 19.8621C22.2054 18.8685 22.75 17.393 22.75 15.5V8.5C22.75 6.60705 22.2054 5.13152 21.1353 4.1379C20.0754 3.15363 18.615 2.75 17 2.75H7ZM19.2285 8.3623C19.5562 8.10904 19.6166 7.63802 19.3633 7.31026C19.1101 6.98249 18.6391 6.9221 18.3113 7.17537L12.7642 11.4616C12.3141 11.8095 11.6858 11.8095 11.2356 11.4616L5.6886 7.17537C5.36083 6.9221 4.88982 6.98249 4.63655 7.31026C4.38328 7.63802 4.44367 8.10904 4.77144 8.3623L10.3185 12.6486C11.3089 13.4138 12.691 13.4138 13.6814 12.6486L19.2285 8.3623Z" fill={`${activeButton === 3 ? `${theme?.inactiveColor}` : `${theme?.menuButtonBackground}`}`} />
+                            </g>
+                        </g>
+                    </svg>
+                )}
             </button>
         </div>
     )

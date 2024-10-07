@@ -91,15 +91,16 @@ const BizCard: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                         <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-4 font-heading">
                             {user?.title}
                         </h2>
+                        <a
+                            href="https://biz-profile.vercel.app/" // Replace with your actual URL
+                            className="fixed bottom-24 right-0 px-4 py-2 text-white rounded-lg outline-none ring-2 ring-white-500 ring-offset-2"
+                        style={{ backgroundColor: theme?.menuButtonBackground }}
+                        >
+                            Our Services
+                        </a>
                     </div>
                 </div>
-                <a
-                    href="123" // Replace with your actual URL
-                    className="fixed bottom-24 right-0 px-4 py-2 text-white rounded-lg outline-none ring-2 ring-white-500 ring-offset-2"
-                    style={{ backgroundColor: theme?.menuButtonBackground }}
-                >
-                    Our Services
-                </a>
+
             </div>
         </div>
     )

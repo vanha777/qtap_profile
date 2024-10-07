@@ -24,7 +24,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
         }}>
             <div className={`bg-primary-content card ${theme?.daisy === 'gold' ? 'glass' : ''} `}
                 style={{
-                    height: '550px', width: '320px',
+                    height: '750px', width: '320px',
                     overflowY: 'auto', // Enable vertical scrolling
                     // overflowX: 'auto',
                 }}
@@ -45,7 +45,7 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                 ) : (
                     <Image
                         style={{
-                            height: 250,
+                            height: 450,
                             width: 'auto', // Ensures the image is not stretched
                             objectFit: 'cover' // Ensures the image covers the container without stretching
                         }}
@@ -82,21 +82,24 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                 </div>
 
                 <div className="card-body pt-16">
-                    <div >
-
+                    <div>
                         <h1 className="text-info-content text-4xl font-bold text-gray-900 mb-2 font-signature">
                             {user?.name}
                         </h1>
 
-                        <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-4 font-heading">
+                        {/* <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-4 font-heading">
                             {user?.title}
-                        </h2>
+                        </h2> */}
 
-                        <p className="text-info-content text-base text-gray-600 font-description">
-                            {user?.bio}
-                        </p>
+                        <div className="flex justify-center space-x-4 mt-6">
+                            <button className="btn btn-primary flex-1 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transition duration-300">
+                                Find Service
+                            </button>
+                            <button className="btn btn-secondary flex-1 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transition duration-300">
+                                Book Now
+                            </button>
+                        </div>
                     </div>
-
                 </div>
             </div>
         </div>

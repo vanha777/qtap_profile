@@ -85,7 +85,7 @@ const SwipeFlipCard: React.FC<MediaProps> = ({ theme, media, isMobile, user }) =
   };
 
   return (
-    <div style={{ perspective: '1000px', width: '320px', height: '480px' }}>
+    <div style={{ perspective: '1000px', width: '320px', height: '550px' }}>
       <motion.div
         style={{
           width: '100%',

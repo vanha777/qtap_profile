@@ -57,6 +57,11 @@ export interface User {
   bio: string;
   social: Social[];
   media: Media[];
+  type:string;
+  address:string;
+  suburb:string;
+  post_code:string;
+  country:string;
 }
 
 const themeConfig: ThemeConfig = {

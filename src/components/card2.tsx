@@ -1,145 +1,108 @@
 "use client";
 
-import React, { useState } from 'react';
-import { motion, useAnimation, PanInfo } from 'framer-motion';
+
+import Link from 'next/link';
+import React from 'react';
+import { useState } from 'react';
 import { Theme, Media, User } from '../../themeConfig';
-import Card from './card';
-import BackSide from './backSide';
+import Image from 'next/image';
+
 interface MediaProps {
-  theme?: Theme;
-  isMobile: boolean;
-  media: Media;
-  user?: User;
+    theme?: Theme;
+    isMobile: boolean;
+    media: Media;
+    user?: User;
 }
 
-const SwipeFlipCard: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
-  const [flipped, setFlipped] = useState(false);
-  const [rotationY, setRotationY] = useState(0);
-  const controls = useAnimation();
+const BizCard: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
+    // Inline style to set the dynamic ring color
+    const style: React.CSSProperties = {
+        '--ring-color': '#000' || '#000', // Set custom property, fallback to #000
+    } as React.CSSProperties;
+    return (
+        <div style={{
+        }}>
+            <div className={`bg-primary-content card ${theme?.daisy === 'gold' ? 'glass' : ''} `}
+                style={{
+                    height: '750px', width: '320px',
+                    overflowY: 'auto', // Enable vertical scrolling
+                    // overflowX: 'auto',
+                    position: 'relative' // Ensure the button is positioned correctly
+                }}
+            >
+                {media.type === 'video' ? (
+                    <video
+                        style={{
+                            height: 450,
+                            width: 'auto', // Adjust as needed, or use '100%' if you want it to fill the width of its container
+                            objectFit: 'cover' // Ensures the video covers the container without stretching
+                        }}
+                        src={media.media} // Replace with your video source URL
+                        autoPlay
+                        muted // Optional: Mutes the video
+                        playsInline // Optional: For inline playback on mobile devices
+                        loop // Optional: To loop the video
+                    />
+                ) : (
+                    <Image
+                        style={{
+                            height: 450,
+                            width: 'auto', // Ensures the image is not stretched
+                            objectFit: 'cover' // Ensures the image covers the container without stretching
+                        }}
+                        src={media.media} // Replace with your image source URL
+                        alt="media" // Provide a meaningful alt text
+                        width={1000}
+                        height={1000}
+                    />
+                )}
 
-  // Handle swipe gestures
-  // const handleSwipe = (_event: MouseEvent | TouchEvent, info: PanInfo) => {
-  //   if (info.offset.x > 100 || info.offset.x < -100) {
-  //     // Trigger flip on significant swipe
-  //     setFlipped((prev) => !prev);
-  //   }
-  //   controls.start({ x: 0 }); // Reset position after swipe
-  // };
-  const handleSwipe = (_event: MouseEvent | TouchEvent, info: PanInfo) => {
-    if (info.offset.x > 100) {
-      console.log("swipe right");
-      // Swipe right - Flip right
-      setFlipped(false);
-    } else if (info.offset.x < -100) {
-      console.log("swipe left");
-      // Swipe left - Flip left
-      setFlipped(true);
-    }
-    controls.start({ x: 0 }); // Reset position after swipe
-  };
+                <div className="relative">
+                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2">
+                        <div className="avatar">
+                            <div className="w-24 h-24 rounded-full relative">
+                                <div
+                                    className={`absolute inset-0 rounded-full p-1 ${theme?.daisy === 'rose' ? 'ring-offset-2' : ''}`}
+                                    style={{
+                                        backgroundImage: `${theme?.avatarBorder}`,
+                                    }}
+                                >
+                                    <div className="w-full h-full rounded-full bg-base-100 p-[2px]">
+                                        <Image
+                                            src={user?.photo || '/default-avatar.png'}
+                                            alt="avatar"
+                                            className="w-full h-full rounded-full object-cover"
+                                            width={100}
+                                            height={100}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  // function onPan(event: any, info: PanInfo) {
-  //   console.log(info.offset.x);
-  //   console.log(event);
-  //   //  console.log(info.point.x, info.point.y);
-  //   if (info.offset.x > 0) {
-  //     console.log("swipe right");
-  //     // Swipe right - Flip right
-  //     setFlipped(false);
-  //   } else if (info.offset.x < 0) {
-  //     console.log("swipe left");
-  //     // Swipe left - Flip left
-  //     setFlipped(true);
-  //   }
-  //   controls.start({ x: 0 }); // Reset position after swipe
-  // }
+                <div className="card-body pt-16">
+                    <div>
+                        <h1 className="text-info-content text-4xl font-bold text-gray-900 mb-2 font-signature">
+                            {user?.name}
+                        </h1>
 
-  const onPan = (_event: MouseEvent | TouchEvent, info: PanInfo) => {
-    const swipeThreshold = 100; // Minimum distance to consider as a swipe
-    let newRotationY = rotationY;
-    if (info.offset.x > 0) {
-      console.log("swipe right");
-      // Swipe right - Flip right
-      setFlipped(false);
-      newRotationY += 90; // Adjust increment as needed
-    } else if (info.offset.x < 0) {
-      console.log("swipe left");
-      // Swipe left - Flip left
-      newRotationY -= 90; // Adjust decrement as needed
-      setFlipped(true);
-    }
-    setRotationY(newRotationY); // Update rotation state
-    controls.start({ rotateY: newRotationY }); // Apply rotation animation
-    // controls.start({ rotateY: flipped ? 180 : 0 }); // Animate rotation based on flipped state
-  };
+                        <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-4 font-heading">
+                            {user?.title}
+                        </h2>
+                    </div>
+                </div>
+                <a
+                    href="123" // Replace with your actual URL
+                    className="fixed bottom-24 right-0 px-4 py-2 text-white rounded-lg outline-none ring-2 ring-white-500 ring-offset-2"
+                    style={{ backgroundColor: theme?.menuButtonBackground }}
+                >
+                    Our Services
+                </a>
+            </div>
+        </div>
+    )
+}
 
-  // Handle card click
-  const handleClick = () => {
-    console.log("turn");
-    setFlipped((prev) => !prev);
-  };
-
-  const flipVariants = {
-    front: { rotateY: 0 },
-    back: { rotateY: 180 },
-  };
-
-  return (
-    <div style={{ perspective: '1000px', width: '320px', height: '480px' }}>
-      <motion.div
-        style={{
-          width: '100%',
-          height: '100%',
-          position: 'relative',
-          transformStyle: 'preserve-3d',
-          transition: 'transform 0.10s',
-        }}
-        animate={{ rotateY: rotationY }}
-        // variants={flipVariants}
-        // onPan={onPan}
-        onPanStart={onPan}
-        onPanEnd={onPan}
-      // onPanEnd={handleSwipe}
-      // onClick={handleClick} // Handle click event to flip the card
-      >
-        <motion.div
-          style={{
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
-            backfaceVisibility: 'hidden',
-            // backgroundColor: '#fff',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            // color: '#333',
-            // fontSize: '24px',
-            // fontWeight: 'bold',
-          }}
-        >
-          <Card theme={theme} user={user} isMobile={isMobile} media={media} />
-        </motion.div>
-        <motion.div
-          style={{
-            width: '100%',
-            height: '100%',
-            position: 'absolute',
-            backfaceVisibility: 'hidden',
-            transform: 'rotateY(180deg)',
-            // backgroundColor: '#ddd',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            // color: '#333',
-            // fontSize: '24px',
-            // fontWeight: 'bold',
-          }}
-        >
-          <BackSide theme={theme} user={user} isMobile={isMobile} media={media} />
-        </motion.div>
-      </motion.div>
-    </div>
-  );
-};
-
-export default SwipeFlipCard;
+export default BizCard;

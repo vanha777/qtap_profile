@@ -84,7 +84,7 @@ TEL:${user.phone}
 EMAIL:${user.email}
 URL:${`https://biz-touch.me/${user?.username}`}
 PHOTO;TYPE=JPEG;ENCODING=BASE64:${avatarBase64}
-ADR:${user.address};${user.suburb};${user.post_code};${user.country}
+ADR:;;${user?.address};${user?.suburb};${user?.state};${user.post_code};${user.country}
 NOTE:My mission is to be a global force for good by empowering people to improve lives with innovative products, rewarding opportunities and an enriching culture.
 END:VCARD`;
 

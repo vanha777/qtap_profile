@@ -84,18 +84,13 @@ TEL:${user.phone}
 EMAIL:${user.email}
 URL:${`https://biz-touch.me/${user?.username}`}
 PHOTO;TYPE=JPEG;ENCODING=BASE64:${avatarBase64}
-ADR:${user.address};${user.suburb};${user.post_code};${user.country}
+ADR:;;${user?.address};${user?.suburb};${user?.state};${user.post_code};${user.country}
 NOTE:My mission is to be a global force for good by empowering people to improve lives with innovative products, rewarding opportunities and an enriching culture.
 END:VCARD`;
 
         const blob = new Blob([vCard], { type: 'text/vcard;charset=utf-8' });
         const url = URL.createObjectURL(blob);
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', `${user.name}.vcf`);
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
+        window.open(url, '_blank');
     };
 
     return (

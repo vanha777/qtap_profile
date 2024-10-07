@@ -62,6 +62,7 @@ export interface User {
   suburb:string;
   post_code:string;
   country:string;
+  state:string;
 }
 
 const themeConfig: ThemeConfig = {

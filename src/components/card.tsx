@@ -87,18 +87,10 @@ const Card: React.FC<MediaProps> = ({ theme, media, isMobile, user }) => {
                             {user?.name}
                         </h1>
 
-                        {/* <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-4 font-heading">
+                        <h2 className="text-info-content text-xl font-semibold text-gray-700 mb-4 font-heading">
                             {user?.title}
-                        </h2> */}
+                        </h2>
 
-                        <div className="flex justify-center space-x-4 mt-6">
-                            <button className="btn btn-primary flex-1 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transition duration-300">
-                                Find Service
-                            </button>
-                            <button className="btn btn-secondary flex-1 text-white font-bold py-2 px-4 rounded-full shadow-lg hover:shadow-xl transition duration-300">
-                                Book Now
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>

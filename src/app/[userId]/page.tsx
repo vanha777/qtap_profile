@@ -56,7 +56,7 @@ export default async function ProfilePage({ params }: { params: { userId: string
     data.name = `${data.first_name} ${data.last_name}`;
     const cssTheme = themeConfig[data.theme] || themeConfig[''];
     const daisyTheme = cssTheme.daisy;
-
+console.log("testing 134 ,",data);
     return (
         <div data-theme={daisyTheme}>
             <Suspense fallback={<LoadingAnimation />}>
